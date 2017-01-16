@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="Single Location" option="View">
+	</layout>
+	<fields name="params">
+		<fieldset 
+            name="basic"
+			label="COM_FOCALPOINT_FIELDSET_ITEM_ID_SELECT_LABEL">
+            <field
+    			name="item_id"
+    			query="SELECT `id`, `title` FROM #__focalpoint_locations WHERE `state`=1 ORDER BY `id`"
+                type="sql"
+                key_field="id" 
+                value_field="title"
+    			label="COM_FOCALPOINT_ITEM_ID_SELECT_LABEL"
+                require="true"
+    			description="JGLOBAL_SHOW_TITLE_DESC">
+            </field>
+		</fieldset>
+	</fields>
+</metadata>

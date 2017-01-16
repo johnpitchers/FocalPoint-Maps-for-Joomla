@@ -1,0 +1,404 @@
+/*
+    Document   : focalpoint
+    Created on : Apr 1, 2013, 2:40:08 PM
+    Author     : John Pitchers
+    Description: Default styles for focalpoint component
+*/
+
+#fp_googleMapContainer {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    position: relative;
+}
+
+#fp_googleMap {
+    background: url(../images/watermark.png) 50% 50% no-repeat;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    float: left;
+    width: 100%;
+    height: 450px;
+}
+
+#fp_googleMapSidebar {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    background: #f9f9f9;
+    background: rgba(128,128,128,0.08);
+    padding: 20px;
+}
+.legend_below #fp_googleMapSidebar {
+    clear:left;
+}
+#fp_googleMapSidebar h4 small {
+    display: block;
+    clear: left;
+    font-size: 70%;
+}
+
+#fp_googleMapSidebar p {
+    margin: 0;
+}
+
+#fp_googleMapSidebar ul.sidebar {
+    list-style: none;
+    padding: 0 0 1em 0;
+    margin: 0 0 1em 0;
+}
+.legend_above #fp_googleMapSidebar ul.sidebar,
+.legend_below #fp_googleMapSidebar ul.sidebar {
+    margin: 0;
+    padding: 0;
+}
+.fp_side #fp_googleMapSidebar ul.sidebar {
+    border-bottom: 1px solid rgba(128,128,128,0.15);
+}
+
+.fp_side #fp_googleMapSidebar ul.sidebar {
+    border-bottom: 1px solid rgba(128,128,128,0.15);
+}
+
+#fp_googleMapSidebar ul.sidebar li {
+    margin: 0;
+    padding: 0;
+}
+
+#fp_googleMapSidebar ul.sidebar li a {
+    text-decoration: none;
+    display: block;
+    padding: 1px 0 1px 18px;
+    position:relative;
+}
+
+#fp_googleMapSidebar ul.sidebar li a:before {
+    background: url(../images/tick.png) 0 0 no-repeat;
+    /*background: url(../images/search.png) 0 0 no-repeat;*/
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -7px;
+    content:" ";
+
+}
+
+#fp_googleMapSidebar ul.sidebar li a.active {
+
+}
+
+#fp_googleMapSidebar ul.sidebar li a.active:before {
+    background-position: 0 -16px;
+}
+
+#fp_googleMap .infoBox {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    background: #fff;
+    width: 320px;
+    box-shadow: 0px 0px 5px #ccc;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: 12px;
+    zoom:1;
+}
+
+.infoBox {
+    -webkit-animation: fadeIn 300ms; /* Chrome, Safari, Opera */
+    animation: fadeIn 400ms;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;margin-bottom: 40px;}
+    to {opacity: 1;margin-bottom: 0px;}
+}
+
+/* Standard syntax */
+@keyframes fadeIn {
+    from {opacity: 0;margin-bottom: 40px;}
+    to {opacity: 1;margin-bottom: 0;}
+}
+
+
+
+#fp_googleMap .infoBox img {
+    max-width: 100% !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+#fp_googleMap .infoboxlink {
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+
+#fp_googleMap .infoBox h4 {
+    margin: 0;
+    padding: 10px 20px;
+    background: #f0f0f0;
+    border-bottom: 1px solid #ddd;
+    border-radius: 5px 5px 0px 0px;
+    text-transform:none;
+}
+#fp_googleMap .infoBox .infoboxcontent {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    margin: 10px 20px;
+    font-size: 13px;
+    position:relative;
+}
+
+.infoBox:after {
+     content: ' ';
+     position: absolute;
+     bottom: -14px;
+     left: 50%;
+     margin-left: -8px;
+     width: 0px;
+     height: 0px;
+     border: 8px solid;
+     border-color: #ffffff transparent transparent transparent;
+ }
+
+.fp-location-view #fp_googleMap {
+    margin: 0 0 20px;
+}
+
+.fp_content img {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    max-width: 100%;
+    height: auto;
+    border: 6px solid #fff;
+    box-shadow: 0px 0px 1px #555;
+    margin: 8px 0;
+}
+
+
+
+.fp_content #fp_googleMap img {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -ms-box-sizing: content-box;
+    -o-box-sizing: content-box;
+    max-width: none !important;
+    height: auto;
+    border: none;
+    box-shadow: none;
+    margin: 0;
+}
+
+#focalpoint .fp_address {
+    background: rgba(128,128,128,0.08);
+    border-radius: 5px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-shadow: 0 0 1px rgba(0,0,0,0.43);
+    margin-bottom: 15px;
+}
+
+.fp_field_label,
+.fp_label {
+    font-weight: bold;
+    width: 10em;
+    display: inline-block;
+}
+
+.fp_clr {
+    clear:both;
+}
+
+
+#fp_googleMap img {
+    max-width: none !important;
+}
+
+#fp_locationlist_container {
+    display:none;
+}
+
+#fp_locationlist {
+    width: 100%;
+    height: 0;
+    min-height: 1px;
+    overflow:hidden;
+    transition:      all 0.5s ease;
+    float: left;
+}
+
+.fp_ll_holder {
+    overflow: auto;
+}
+.fp-map-view .fp_listitem {
+    width: 30%;
+    float: left;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    margin: 0 1.5%;
+    background: #fff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    padding: 10px 20px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+
+}
+
+.fp-map-view .fp_listitem_hidden {
+    display:none;
+}
+
+.fp-map-view .fp_listitem:nth-child(3n+4) {
+    clear:left;
+}
+
+#fp_map_actions form {
+    display:inline;
+}
+
+#fp_map_actions form label {
+    display:none;
+}
+
+#fp_map_buttons.input-append {
+    white-space: normal;
+    display: block !important;
+    margin-top: 10px;
+}
+
+#fp_scrolltomaptop {
+    width: 0;
+    height: 0;
+}
+
+#focalpoint .adp-step, .adp-text {
+    padding-left: 30px;
+}
+
+.fp-location-view .fp_right_column #fp_map_actions,
+#fp_googleMapContainer.fp_side .input-append {
+    width: 100%;
+}
+
+.fp-location-view .fp_right_column #fp_searchAddress,
+#fp_googleMapContainer.fp_side #fp_searchAddress {
+    width: 70%;
+    text-indent: 8px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#fp_googleMapContainer.fp_above .input-append input[type="text"],
+#fp_googleMapContainer.fp_below .input-append input[type="text"] {
+    border-left: none;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+.fp-location-view .fp_right_column button.btn,
+#fp_googleMapContainer.fp_side .fp_mapsearch button.btn {
+    width: 30%;
+    box-sizing: border-box;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.fp_mapsearch {
+    margin-bottom: 10px;
+}
+
+#focalpoint .input-append {
+    margin-bottom: 0;
+    display: inline-block;
+}
+
+#focalpoint h1.backlink,
+#focalpoint h1.backlink a,
+#focalpoint h2.backlink,
+#focalpoint h2.backlink a{
+    transition: all 0.2s ease;
+}
+
+#focalpoint h1.backlink,
+#focalpoint h2.backlink{
+    box-sizing: border-box;
+}
+#focalpoint h1.backlink a,
+#focalpoint h2.backlink a{
+    background: url(../images/backtomap.png) 22px 50% repeat-x;
+    display:inline-block;
+    width: 11px;
+    text-indent: -4000px;
+    position:relative;
+    left: 0;
+    margin-right: 5px;
+}
+
+
+#focalpoint h1.backlink:hover a,
+#focalpoint h2.backlink:hover a{
+    width: 22px;
+    margin-left: -11px;
+    background-position: 0 50%;
+}
+
+
+#focalpoint .nolocations{
+text-align: center;
+margin-top: 20%;
+}
+
+/**    Responsive parameters    ***/
+
+@media (max-width: 980px) {
+
+    .fp-map-view .fp_listitem {
+        width: 47%;
+    }
+    .fp-map-view .fp_listitem:nth-child(3n+4) {
+        clear:none;
+    }
+    .fp-map-view .fp_listitem:nth-child(2n+3) {
+        clear:left;
+    }
+
+
+}
+
+@media (max-width: 768px) {
+
+    #fp_googleMapContainer.fp_side #fp_googleMap,
+    #fp_googleMapContainer.fp_side #fp_locationlist {
+        width: 100% !important;
+        float: none;
+    }
+
+    #fp_googleMapContainer.fp_side #fp_googleMapSidebar {
+        float:none !important;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        width: 100% !important;
+        min-height: 0 !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .fp-map-view .fp_listitem{
+        width: 97%;
+    }
+}

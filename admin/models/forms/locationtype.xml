@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset>
+
+        <field name="id" type="text" default="0" label="COM_FOCALPOINT_FORM_LBL_LOCATIONTYPE_ID"
+               readonly="true" class="readonly"
+               description="JGLOBAL_FIELD_ID_DESC"/>
+
+        <field name="title" type="text"
+               label="COM_FOCALPOINT_FORM_LBL_LOCATIONTYPE_TITLE"
+               description="COM_FOCALPOINT_FORM_DESC_LOCATIONTYPE_TITLE"
+               required="true"
+               filter="string"
+               size="30"
+               maxlength="150"/>
+
+        <field name="alias" type="text" size="30" class="inputbox"
+               label="COM_FOCALPOINT_FORM_LBL_LOCATIONTYPE_ALIAS"
+               description="COM_FOCALPOINT_FORM_DESC_LOCATIONTYPE_ALIAS"
+               required="false"
+               filter="safehtml"/>
+        <!--
+                <field name="description" type="editor"
+                    label="COM_FOCALPOINT_FORM_LBL_LOCATIONTYPE_DESCRIPTION"
+                    description="COM_FOCALPOINT_FORM_DESC_LOCATIONTYPE_DESCRIPTION"
+                    height="250"
+                    filter="safehtml" />
+        -->
+        <field name="marker"
+               type="media"
+               label="COM_FOCALPOINT_FORM_LBL_LOCATIONTYPE_MARKER"
+               description="COM_FOCALPOINT_FORM_DESC_LOCATIONTYPE_MARKER"
+               directory="/images/markers/"/>
+
+        <field name="legend" type="legend" class="inputbox"
+               label="COM_FOCALPOINT_FORM_LBL_LOCATIONTYPE_LEGEND"
+               required="true"
+               description="COM_FOCALPOINT_FORM_DESC_LOCATIONTYPE_LEGEND"
+                />
+
+        <field name="customfields" type="editor" buttons="true"
+               class="inputbox"
+               filter="safehtml"
+               label="COM_FOCALPOINT_FORM_LBL_LOCATIONTYPE_CUSTOMFIELDS"
+               description="COM_FOCALPOINT_FORM_DESC_LOCATIONTYPE_CUSTOMFIELDS"/>
+
+        <field name="created_by" type="createdby" default=""
+               label="COM_FOCALPOINT_FORM_LBL_LOCATIONTYPE_CREATED_BY"
+               description="COM_FOCALPOINT_FORM_DESC_LOCATIONTYPE_CREATED_BY"/>
+
+        <field
+                name="state"
+                type="list"
+                label="JSTATUS"
+                description="JFIELD_PUBLISHED_DESC"
+                class="inputbox"
+                size="1"
+                default="1">
+            <option value="1">JPUBLISHED</option>
+            <option value="0">JUNPUBLISHED</option>
+        </field>
+
+        <field name="checked_out" type="hidden" filter="unset"/>
+        <field name="checked_out_time" type="hidden" filter="unset"/>
+
+    </fieldset>
+
+</form>

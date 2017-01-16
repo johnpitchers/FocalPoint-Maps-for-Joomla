@@ -1,0 +1,564 @@
+
+#mapCanvas {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 15px;
+}
+
+#mapCanvas img {
+    max-width: none !important;
+}
+
+#info {
+    display: inline-block;
+}
+
+#openGeocoder {
+    margin: 10px 0;
+}
+
+.element-add {
+    background: url(../images/element_add.png) 0 50% no-repeat;
+    padding: 4px 0px 4px 22px;
+    display: inline-block;
+}
+
+.customfields fieldset * {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+}
+
+.deletefield {
+    color: #666;
+    display: block;
+    width: 12px !important;
+    height: 12px !important;
+    padding: 6px 6px;
+    font-size: 14px !important;
+    float: right;
+    position: relative;
+    right: 5px;
+    top: -48px;
+    cursor: pointer;
+    border-radius: 20px;
+    opacity: 0.2;
+}
+
+.customfields fieldset:hover a.deletefield:hover {
+    text-decoration: none;
+    color: #000;
+    opacity: 1;
+}
+
+.customfields fieldset:hover .deletefield {
+    opacity: 0.6;
+}
+
+.customfields fieldset legend {
+    font-size: 16px;
+}
+
+.customfields fieldset:hover legend {
+    cursor: move;
+    background: #f7f9fa;
+    background: -moz-linear-gradient(top, #f7f9fa 0%, #ededed 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f7f9fa), color-stop(100%, #ededed));
+    background: -webkit-linear-gradient(top, #f7f9fa 0%, #ededed 100%);
+    background: -o-linear-gradient(top, #f7f9fa 0%, #ededed 100%);
+    background: -ms-linear-gradient(top, #f7f9fa 0%, #ededed 100%);
+    background: linear-gradient(top, #f7f9fa 0%, #ededed 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f7f9fa', endColorstr='#ededed', GradientType=0);
+
+}
+
+div fieldset.ui-sortable-placeholder {
+    visibility: visible !important;
+    background: #fffff0 !important;
+    border: 1px dashed #ccc;
+}
+
+.img-li img {
+    float: left;
+    clear: left;
+    margin-left: 140px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    max-width: 150px;
+    height: auto;
+}
+
+.img-li a.modal {
+    border: 1px solid #ddd;
+    padding: 2px 5px;
+    position: relative;
+    display: inline-block;
+    top: 5px;
+    border-radius: 3px;
+    text-shadow: 1px 1px 0px #fff;
+    background: #D9D9DD;
+    color: #333;
+    box-shadow: inset 1px 1px 2px #fff;
+    font-size: 10px;
+}
+
+.customeditor {
+    margin-bottom: 32px;
+}
+
+.inblock-fltrt {
+    display: inline-block;
+    float: right;
+    font-size: 10px;
+    padding-top: 2px;
+}
+
+.linkhelper {
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.mce-edit-area iframe {
+    height: 200px !important;
+}
+
+#j-main-container {
+    position: relative;
+}
+
+#fp_pointer {
+    position: absolute;
+    width: 69px;
+    height: 112px;
+    background: url(../images/pointer.png) 0 0 no-repeat;
+    display: none;
+}
+
+.tmpl_isis #fp_pointer {
+    display: block;
+}
+
+.fp_map .hero-unit,
+.fp_maps_view .hero-unit {
+    background-image: url(../images/getstartedmaps.png);
+    background-position: 100% 50%;
+    background-repeat: no-repeat;
+    padding-right: 320px;
+}
+
+.fp_locationtype .hero-unit,
+.fp_locationtypes_view .hero-unit {
+    background-image: url(../images/getstartedtypes_sm.png);
+    background-position: 100% 50%;
+    background-repeat: no-repeat;
+    padding-right: 320px;
+}
+
+.fp_legend .hero-unit,
+.fp_legends_view .hero-unit {
+    background-image: url(../images/getstartedlogends.png);
+    background-position: 100% 50%;
+    background-repeat: no-repeat;
+    padding-right: 520px;
+}
+
+#locationContent #customfields label {
+    font-weight: bold;
+    font-size: 120%;
+}
+
+.fp_config #fp_pointer {
+    transform: rotate(210deg);
+    -ms-transform: rotate(210deg); /* IE 9 */
+    -webkit-transform: rotate(210deg);
+
+    animation: optionshere 1000ms ease infinite;
+    -moz-animation: optionshere 1000ms ease infinite; /* Firefox */
+    -webkit-animation: optionshere 1000ms ease infinite; /* Safari and Chrome */
+    -o-animation: optionshere 1000ms ease infinite; /* Opera */
+}
+
+.fp_map #fp_pointer {
+    transform: rotate(90deg);
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg);
+
+    animation: mapshere 1000ms ease infinite;
+    -moz-animation: mapshere 1000ms ease infinite; /* Firefox */
+    -webkit-animation: mapshere 1000ms ease infinite; /* Safari and Chrome */
+    -o-animation: mapshere 1000ms ease infinite; /* Opera */
+}
+
+.fp_legend #fp_pointer {
+    transform: rotate(90deg);
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg);
+
+    animation: legendshere 1000ms ease infinite;
+    -moz-animation: legendshere 1000ms ease infinite; /* Firefox */
+    -webkit-animation: legendshere 1000ms ease infinite; /* Safari and Chrome */
+    -o-animation: legendshere 1000ms ease infinite; /* Opera */
+}
+
+.fp_locationtype #fp_pointer {
+    transform: rotate(90deg);
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg);
+
+    animation: typeshere 1000ms ease infinite;
+    -moz-animation: typeshere 1000ms ease infinite; /* Firefox */
+    -webkit-animation: typeshere 1000ms ease infinite; /* Safari and Chrome */
+    -o-animation: typeshere 1000ms ease infinite; /* Opera */
+}
+
+.fp_maps_view #fp_pointer,
+.fp_legends_view #fp_pointer,
+.fp_locationtypes_view #fp_pointer {
+    transform: rotate(120deg);
+    -ms-transform: rotate(120deg); /* IE 9 */
+    -webkit-transform: rotate(120deg);
+
+    animation: pressnew 1000ms ease infinite;
+    -moz-animation: pressnew 1000ms ease infinite; /* Firefox */
+    -webkit-animation: pressnew 1000ms ease infinite; /* Safari and Chrome */
+    -o-animation: pressnew 1000ms ease infinite; /* Opera */
+}
+
+@media (max-width: 980px) {
+    #fp_pointer {
+        display: none;
+    }
+
+    .fp_legend .hero-unit,
+    .fp_legends_view .hero-unit {
+        background-image: url(../images/getstartedlogends-sm.png);
+        padding-right: 300px;
+    }
+}
+
+@media (max-width: 767px) {
+    #fp_pointer {
+        display: none;
+    }
+
+    .fp_locationtype .hero-unit,
+    .fp_locationtypes_view .hero-unit,
+    .fp_legend .hero-unit,
+    .fp_legends_view .hero-unit,
+    .fp_map .hero-unit,
+    .fp_maps_view .hero-unit {
+        background-image: none;
+        padding-right: 60px;
+    }
+}
+
+/*******************/
+
+@keyframes pressnew {
+    0% {
+        top: -55px;
+        left: -80px;
+    }
+    50% {
+        top: -45px;
+        left: -60px;
+    }
+    100% {
+        top: -55px;
+        left: -80px;
+    }
+}
+
+@-webkit-keyframes pressnew {
+    0% {
+        top: -55px;
+        left: -80px;
+    }
+    50% {
+        top: -45px;
+        left: -60px;
+    }
+    100% {
+        top: -55px;
+        left: -80px;
+    }
+}
+
+@-moz-keyframes pressnew {
+    0% {
+        top: -55px;
+        left: -80px;
+    }
+    50% {
+        top: -45px;
+        left: -60px;
+    }
+    100% {
+        top: -55px;
+        left: -80px;
+    }
+}
+
+@-o-keyframes pressnew {
+    0% {
+        top: -55px;
+        left: -80px;
+    }
+    50% {
+        top: -45px;
+        left: -60px;
+    }
+    100% {
+        top: -55px;
+        left: -80px;
+    }
+}
+
+/*******************/
+
+@keyframes typeshere {
+    0% {
+        top: 1px;
+        left: -20px;
+    }
+    50% {
+        top: 1px;
+        left: 0px;
+    }
+    100% {
+        top: 1px;
+        left: -20px;
+    }
+}
+
+@-webkit-keyframes typeshere {
+    0% {
+        top: 1px;
+        left: -20px;
+    }
+    50% {
+        top: 1px;
+        left: 0px;
+    }
+    100% {
+        top: 1px;
+        left: -20px;
+    }
+}
+
+@-moz-keyframes typeshere {
+    0% {
+        top: 1px;
+        left: -20px;
+    }
+    50% {
+        top: 1px;
+        left: 0px;
+    }
+    100% {
+        top: 1px;
+        left: -20px;
+    }
+}
+
+@-o-keyframes typeshere {
+    0% {
+        top: 1px;
+        left: -20px;
+    }
+    50% {
+        top: 1px;
+        left: 0px;
+    }
+    100% {
+        top: 1px;
+        left: -20px;
+    }
+}
+
+/*******************/
+
+@keyframes legendshere {
+    0% {
+        top: -23px;
+        left: -20px;
+    }
+    50% {
+        top: -23px;
+        left: 0px;
+    }
+    100% {
+        top: -23px;
+        left: -20px;
+    }
+}
+
+@-webkit-keyframes legendshere {
+    0% {
+        top: -23px;
+        left: -20px;
+    }
+    50% {
+        top: -23px;
+        left: 0px;
+    }
+    100% {
+        top: -23px;
+        left: -20px;
+    }
+}
+
+@-moz-keyframes legendshere {
+    0% {
+        top: -23px;
+        left: -20px;
+    }
+    50% {
+        top: -23px;
+        left: 0px;
+    }
+    100% {
+        top: -23px;
+        left: -20px;
+    }
+}
+
+@-o-keyframes legendshere {
+    0% {
+        top: -23px;
+        left: -20px;
+    }
+    50% {
+        top: -23px;
+        left: 0px;
+    }
+    100% {
+        top: -23px;
+        left: -20px;
+    }
+}
+
+/*******************/
+
+@keyframes mapshere {
+    0% {
+        top: -45px;
+        left: -20px;
+    }
+    50% {
+        top: -45px;
+        left: 0px;
+    }
+    100% {
+        top: -45px;
+        left: -20px;
+    }
+}
+
+@-webkit-keyframes mapshere {
+    0% {
+        top: -45px;
+        left: -20px;
+    }
+    50% {
+        top: -45px;
+        left: 0px;
+    }
+    100% {
+        top: -45px;
+        left: -20px;
+    }
+}
+
+@-moz-keyframes mapshere {
+    0% {
+        top: -45px;
+        left: -20px;
+    }
+    50% {
+        top: -45px;
+        left: 0px;
+    }
+    100% {
+        top: -45px;
+        left: -20px;
+    }
+}
+
+@-o-keyframes mapshere {
+    0% {
+        top: -45px;
+        left: -20px;
+    }
+    50% {
+        top: -45px;
+        left: 0px;
+    }
+    100% {
+        top: -45px;
+        left: -20px;
+    }
+}
+
+/*******************/
+
+@keyframes optionshere {
+    0% {
+        top: -30px;
+        right: 25px;
+    }
+    50% {
+        top: -10px;
+        right: 37px;
+    }
+    100% {
+        top: -30px;
+        right: 25px;
+    }
+}
+
+@-webkit-keyframes optionshere {
+    0% {
+        top: -30px;
+        right: 25px;
+    }
+    50% {
+        top: -10px;
+        right: 37px;
+    }
+    100% {
+        top: -30px;
+        right: 25px;
+    }
+}
+
+@-moz-keyframes optionshere {
+    0% {
+        top: -30px;
+        right: 25px;
+    }
+    50% {
+        top: -10px;
+        right: 37px;
+    }
+    100% {
+        top: -30px;
+        right: 25px;
+    }
+}
+
+@-o-keyframes optionshere {
+    0% {
+        top: -30px;
+        right: 25px;
+    }
+    50% {
+        top: -10px;
+        right: 37px;
+    }
+    100% {
+        top: -30px;
+        right: 25px;
+    }
+}

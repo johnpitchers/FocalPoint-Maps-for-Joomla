@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset>
+
+        <field name="id" type="text" default="0" label="COM_FOCALPOINT_FORM_LBL_MAP_ID"
+               readonly="true" class="readonly"
+               description="JGLOBAL_FIELD_ID_DESC"/>
+
+        <field name="title" type="text"
+               label="COM_FOCALPOINT_FORM_LBL_MAP_TITLE"
+               description="COM_FOCALPOINT_FORM_DESC_MAP_TITLE"
+               required="true"
+               filter="string"
+               size="30"
+               maxlength="150"/>
+
+        <field name="alias" type="text" size="30" class="inputbox"
+               label="COM_FOCALPOINT_FORM_LBL_MAP_ALIAS"
+               description="COM_FOCALPOINT_FORM_DESC_MAP_ALIAS"
+               required="false"
+               filter="safehtml"/>
+
+        <field name="text" type="editor"
+               label="COM_FOCALPOINT_FORM_LBL_MAP_DESCRIPTION"
+               description="COM_FOCALPOINT_FORM_DESC_MAP_DESCRIPTION"
+               height="250"
+               filter="safehtml"/>
+
+        <field name="tabsdata" type="hidden"
+               class="inputbox"
+               filter="raw"
+               label="COM_FOCALPOINT_FORM_LBL_MAP_TABSDATA"
+               description="COM_FOCALPOINT_FORM_DESC_MAP_TABSDATA"/>
+
+
+        <field name="includesubcats" type="radio"
+               label="COM_FOCALPOINT_FORM_LBL_MAP_INCLUDESUBCATS"
+               description="COM_FOCALPOINT_FORM_DESC_MAP_INCLUDESUBCATS"
+               filter="raw">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </field>
+        <!--
+                <field name="centerpoint" type="text"
+                    label="COM_FOCALPOINT_FORM_LBL_MAP_CENTERPOINT"
+                    description="COM_FOCALPOINT_FORM_DESC_MAP_CENTERPOINT"
+                    required="false"
+                    filter="raw"
+                    maxlength="300" />
+        -->
+        <field name="latitude" type="text"
+               label="COM_FOCALPOINT_FORM_LBL_MAP_LATITUDE"
+               description="COM_FOCALPOINT_FORM_DESC_MAP_LATITUDE"
+               required="true"
+               size="30"
+               filter="raw"
+               maxlength="30"/>
+
+        <field name="longitude" type="text"
+               label="COM_FOCALPOINT_FORM_LBL_MAP_LONGITUDE"
+               description="COM_FOCALPOINT_FORM_DESC_MAP_LONGITUDE"
+               required="true"
+               size="30"
+               filter="raw"
+               maxlength="30"/>
+
+        <field name="kmlfile"
+               type="text"
+               label="KML file"
+               description=""
+               hide_default="true"
+                />
+
+        <field name="created_by" type="createdby" default=""
+               label="COM_FOCALPOINT_FORM_LBL_MAP_CREATED_BY"
+               description="COM_FOCALPOINT_FORM_DESC_MAP_CREATED_BY"/>
+
+        <field
+                name="state"
+                type="list"
+                label="JSTATUS"
+                description="JFIELD_PUBLISHED_DESC"
+                class="inputbox"
+                size="1"
+                default="1">
+            <option value="1">JPUBLISHED</option>
+            <option value="0">JUNPUBLISHED</option>
+        </field>
+
+        <field name="checked_out" type="hidden" filter="unset"/>
+        <field name="checked_out_time" type="hidden" filter="unset"/>
+
+    </fieldset>
+
+    <fields name="metadata">
+        <fieldset name="meta" label="Metadata">
+            <field name="metakey" type="textarea"
+                   label="COM_FOCALPOINT_FORM_META_KEYWORDS_LABEL" description="COM_FOCALPOINT_FORM_META_KEYWORDS_DESC"
+                   class="inputbox" rows="3" cols="30"/>
+
+            <field name="metadesc" type="textarea"
+                   label="COM_FOCALPOINT_FORM_META_DESCRIPTION_LABEL"
+                   description="COM_FOCALPOINT_FORM_META_DESCRIPTION_DESC"
+                   class="inputbox" rows="3" cols="30"/>
+            <field name="robots"
+                   type="list"
+                   label="COM_FOCALPOINT_FORM_METADATA_ROBOTS_LABEL"
+                   description="COM_FOCALPOINT_FORM_METADATA_ROBOTS_DESC"
+                    >
+                <option value="">JGLOBAL_USE_GLOBAL</option>
+                <option value="index, follow">JGLOBAL_INDEX_FOLLOW</option>
+                <option value="noindex, follow">JGLOBAL_NOINDEX_FOLLOW</option>
+                <option value="index, nofollow">JGLOBAL_INDEX_NOFOLLOW</option>
+                <option value="noindex, nofollow">JGLOBAL_NOINDEX_NOFOLLOW</option>
+            </field>
+
+            <field name="author" type="text"
+                   label="JAUTHOR" description="COM_FOCALPOINT_FORM_METADATA_AUTHOR_DESC"
+                   size="20"/>
+
+            <field name="rights" type="textarea" label="COM_FOCALPOINT_FORM_META_RIGHTS_LABEL"
+                   description="COM_FOCALPOINT_FORM_META_RIGHTS_DESC" required="false" filter="string"
+                   cols="30" rows="2"/>
+        </fieldset>
+    </fields>
+
+    <fields name="params">
+        <fieldset name="advanced" label="Advanced Parameters">
+
+            <field name="mapTypeId" type="list" default="" label="COM_FOCALPOINT_FORM_LBL_CONFIG_MAP_TYPE"
+                   description="COM_FOCALPOINT_FORM_LBL_CONFIG_MAP_TYPE_DESC">
+                <option value="">JGLOBAL_USE_GLOBAL</option>
+                <option value="ROADMAP">ROADMAP</option>
+                <option value="SATELLITE">SATELLITE</option>
+                <option value="HYBRID">HYBRID</option>
+                <option value="TERRAIN">TERRAIN</option>
+            </field>
+
+            <field name="mapTypeControl" type="list" default=""
+                   label="COM_FOCALPOINT_FORM_LBL_CONFIG_MAP_TYPE_CONTROL_LBL"
+                   description="COM_FOCALPOINT_FORM_LBL_CONFIG_MAP_TYPE_CONTROL_DESC">
+                <option value="">JGLOBAL_USE_GLOBAL</option>
+                <option value="true">Enabled</option>
+                <option value="false">Disabled</option>
+            </field>
+
+            <field name="zoom" type="list" default="" label="COM_FOCALPOINT_FORM_LBL_CONFIG_ZOOM_LVL_LBL"
+                   description="COM_FOCALPOINT_FORM_LBL_CONFIG_ZOOM_LVL_DESC">
+                <option value="">JGLOBAL_USE_GLOBAL</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+            </field>
+
+            <field name="maxzoom" type="list" default="12" label="COM_FOCALPOINT_FORM_LBL_CONFIG_MAXZOOM_LVL_LBL"
+                   description="COM_FOCALPOINT_FORM_LBL_CONFIG_MAXZOOM_LVL_DESC">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="null">COM_FOCALPOINT_FORM_LBL_CONFIG_AUTO</option>
+            </field>
+
+            <field name="zoomControl" type="list" default="" label="COM_FOCALPOINT_FORM_LBL_CONFIG_ZOOM_CONTROLS_LBL"
+                   description="COM_FOCALPOINT_FORM_LBL_CONFIG_ZOOM_CONTROLS_DESC">
+                <option value="">JGLOBAL_USE_GLOBAL</option>
+                <option value="true">Enabled</option>
+                <option value="false">Disabled</option>
+            </field>
+
+            <field name="scrollwheel" type="list" default="" label="COM_FOCALPOINT_FORM_LBL_CONFIG_MOUSE_ZOOM_LBL"
+                   description="COM_FOCALPOINT_FORM_LBL_CONFIG_MOUSE_ZOOM_DESC">
+                <option value="">JGLOBAL_USE_GLOBAL</option>
+                <option value="true">Enabled</option>
+                <option value="false">Disabled</option>
+            </field>
+
+            <field name="draggable" type="list" default="" label="COM_FOCALPOINT_FORM_LBL_CONFIG_DRAGABLE_LBL"
+                   description="COM_FOCALPOINT_FORM_LBL_CONFIG_DRAGABLE_DESC">
+                <option value="">JGLOBAL_USE_GLOBAL</option>
+                <option value="true">Enabled</option>
+                <option value="false">Disabled</option>
+            </field>
+
+            <field name="panControl" type="list" default="" label="COM_FOCALPOINT_FORM_LBL_CONFIG_PAN_CONTROL_LBL"
+                   description="COM_FOCALPOINT_FORM_LBL_CONFIG_PAN_CONTROL_DESC">
+                <option value="">JGLOBAL_USE_GLOBAL</option>
+                <option value="true">Enabled</option>
+                <option value="false">Disabled</option>
+            </field>
+
+            <field name="streetViewControl" type="list" default=""
+                   label="COM_FOCALPOINT_FORM_LBL_CONFIG_STREETVIEW_CONTROL_LBL"
+                   description="COM_FOCALPOINT_FORM_LBL_CONFIG_STREETVIEW_CONTROL_DESC">
+                <option value="">JGLOBAL_USE_GLOBAL</option>
+                <option value="true">Enabled</option>
+                <option value="false">Disabled</option>
+            </field>
+
+            <field name="mapsizecontrol" type="list" default=""
+                   label="COM_FOCALPOINT_FORM_LBL_CONFIG_MAP_SIZE_CONTROL_LBL"
+                   description="COM_FOCALPOINT_FORM_LBL_CONFIG_MAP_SIZE_CONTROL_DESC">
+                <option value="">JGLOBAL_USE_GLOBAL</option>
+                <option value="0">COM_FOCALPOINT_FORM_LBL_CONFIG_MAP_SIZE_CONTROL_OPT_TEMPLATE</option>
+                <option value="1">COM_FOCALPOINT_FORM_LBL_CONFIG_MAP_SIZE_CONTROL_OPT_CONFIG</option>
+            </field>
+
+            <field
+                    name="mapsizex"
+                    type="text"
+                    default=""
+                    label="COM_FOCALPOINT_FORM_LBL_CONFIG_DEFAULT_WIDTH_LBL"
+                    description="COM_FOCALPOINT_FORM_LBL_CONFIG_DEFAULT_WIDTH_DESC"
+                    size="5"
+                    />
+
+            <field
+                    name="mapsizey"
+                    type="text"
+                    default=""
+                    label="COM_FOCALPOINT_FORM_LBL_CONFIG_DEFAULT_HEIGHT_LBL"
+                    description="COM_FOCALPOINT_FORM_LBL_CONFIG_DEFAULT_HEIGHT_DESC"
+                    size="5"
+                    />
+
+            <field name="legendposition" type="list" default="below"
+                   label="COM_FOCALPOINT_FORM_LBL_CONFIG_LEGEND_POSITION_LBL"
+                   description="COM_FOCALPOINT_FORM_LBL_CONFIG_LEGEND_POSITION_DESC">
+                <option value="">JGLOBAL_USE_GLOBAL</option>
+                <option value="above">COM_FOCALPOINT_FORM_LBL_CONFIG_LEGEND_POSITION_OPT_ABOVE</option>
+                <option value="below">COM_FOCALPOINT_FORM_LBL_CONFIG_LEGEND_POSITION_OPT_BELOW</option>
+                <option value="right">COM_FOCALPOINT_FORM_LBL_CONFIG_LEGEND_POSITION_OPT_RIGHT</option>
+                <option value="left">COM_FOCALPOINT_FORM_LBL_CONFIG_LEGEND_POSITION_OPT_LEFT</option>
+            </field>
+
+            <field
+                    name="sidebarx"
+                    type="text"
+                    default=""
+                    label="COM_FOCALPOINT_FORM_LBL_CONFIG_SIDEBAR_WIDTH_LBL"
+                    description="COM_FOCALPOINT_FORM_LBL_CONFIG_SIDEBAR_WIDTH_DESC"
+                    size="5"
+                    />
+
+            <field name="showmarkers" type="list" default="" label="COM_FOCALPOINT_FORM_LBL_CONFIG_SHOW_MARKERS_LBL"
+                   description="COM_FOCALPOINT_FORM_LBL_CONFIG_SHOW_MARKERS_DESC">
+                <option value="">JGLOBAL_USE_GLOBAL</option>
+                <option value="on">Show</option>
+                <option value="off">Hide</option>
+            </field>
+
+            <field name="locationlist" type="list" default="" label="COM_FOCALPOINT_FORM_LBL_CONFIG_LOCATION_LIST_LBL"
+                   description="COM_FOCALPOINT_FORM_LBL_CONFIG_LOCATION_LIST_DESC">
+                <option value="">JGLOBAL_USE_GLOBAL</option>
+                <option value="0">JNO</option>
+                <option value="1">JYES</option>
+            </field>
+
+            <field name="showlistfirst" type="list" default="" label="COM_FOCALPOINT_FORM_LBL_CONFIG_LOCATION_LIST_TAB_FIRST_LBL"
+                   description="COM_FOCALPOINT_FORM_LBL_CONFIG_LOCATION_LIST_TAB_FIRST_DESC">
+                <option value="">JGLOBAL_USE_GLOBAL</option>
+                <option value="0">JNO</option>
+                <option value="1">JYES</option>
+            </field>
+
+        </fieldset>
+    </fields>
+
+</form>

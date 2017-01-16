@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset>
+        <field name="id" type="text" default="0" label="COM_FOCALPOINT_FORM_LBL_LEGEND_ID"
+               readonly="true" class="readonly"
+               description="JGLOBAL_FIELD_ID_DESC"/>
+
+        <field name="title" type="text"
+               class="inputbox input-xxlarge input-large-text"
+               label="COM_FOCALPOINT_FORM_LBL_LEGEND_TITLE"
+               description="COM_FOCALPOINT_FORM_DESC_LEGEND_TITLE"
+               required="true"
+               filter="string"
+               size="30"
+               maxlength="150"/>
+
+        <field name="alias" type="text" size="40" class="inputbox"
+               label="COM_FOCALPOINT_FORM_LBL_LEGEND_ALIAS"
+               description="COM_FOCALPOINT_FORM_DESC_LEGEND_ALIAS"
+               required="false"
+               hint="JFIELD_ALIAS_PLACEHOLDER"
+               filter="safehtml"/>
+
+        <field name="subtitle" type="text"
+               label="COM_FOCALPOINT_FORM_LBL_LEGEND_SUBTITLE"
+               description="COM_FOCALPOINT_FORM_DESC_LEGEND_SUBTITLE"
+               filter="string"
+               size="30"
+               maxlength="300"/>
+
+        <field name="created_by" type="createdby" default=""
+               label="COM_FOCALPOINT_FORM_LBL_LEGEND_CREATED_BY"
+               description="COM_FOCALPOINT_FORM_DESC_LEGEND_CREATED_BY"/>
+
+        <field
+                name="state"
+                type="list"
+                label="JSTATUS"
+                description="JFIELD_PUBLISHED_DESC"
+                class="inputbox"
+                size="1"
+                default="1">
+            <option value="1">JPUBLISHED</option>
+            <option value="0">JUNPUBLISHED</option>
+        </field>
+
+        <field name="checked_out" type="hidden" filter="unset"/>
+
+        <field name="checked_out_time" type="hidden" filter="unset"/>
+
+    </fieldset>
+
+</form>

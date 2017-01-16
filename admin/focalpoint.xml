@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.0.0" method="upgrade">
+    <name>FocalPoint</name>
+    <creationDate>23 August 2016</creationDate>
+    <copyright>Copyright (C) 2013. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <author>John Pitchers</author>
+    <authorEmail>john@viperfish.com.au</authorEmail>
+    <authorUrl>http://viperfish.com.au</authorUrl>
+    <version>1.2.7</version>
+    <description>FocalPoint Maps. A maps based directory extension for Jooma 3.x. Developed by Viperfish Media.
+    </description>
+
+    <install> <!-- Runs on install -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <update>
+        <schemas>
+            <schemapath type="mysql">sql/updates/mysql</schemapath>
+        </schemas>
+    </update>
+    <scriptfile>install.focalpoint.php</scriptfile>
+
+    <media folder="media" destination="com_focalpoint">
+        <folder>markers</folder>
+    </media>
+
+    <files folder="site">
+        <filename>controller.php</filename>
+        <filename>focalpoint.php</filename>
+        <filename>index.html</filename>
+        <filename>README.md</filename>
+        <filename>router.php</filename>
+        <folder>assets</folder>
+        <folder>controllers</folder>
+        <folder>helpers</folder>
+        <folder>models</folder>
+        <folder>views</folder>
+    </files>
+    <languages folder="language/site">
+        <language tag="en-GB">en-GB/en-GB.com_focalpoint.ini</language>
+    </languages>
+    <administration>
+        <menu>COM_FOCALPOINT</menu>
+        <submenu>
+            <menu link="option=com_focalpoint&amp;view=maps" view="maps"
+                  img="components/com_focalpoint/assets/images/s_maps.png" alt="Focalpoint/Maps">
+                COM_FOCALPOINT_TITLE_MAPS
+            </menu>
+            <menu link="option=com_focalpoint&amp;view=legends" view="legends"
+                  img="components/com_focalpoint/assets/images/s_legends.png" alt="Focalpoint/Legends">
+                COM_FOCALPOINT_TITLE_LEGENDS
+            </menu>
+            <menu link="option=com_focalpoint&amp;view=locationtypes" view="locationtypes"
+                  img="components/com_focalpoint/assets/images/s_locationtypes.png" alt="Focalpoint/Locationtypes">
+                COM_FOCALPOINT_TITLE_LOCATIONTYPES
+            </menu>
+            <menu link="option=com_focalpoint&amp;view=locations" view="locations"
+                  img="components/com_focalpoint/assets/images/s_locations.png" alt="Focalpoint/Locations">
+                COM_FOCALPOINT_TITLE_LOCATIONS
+            </menu>
+        </submenu>
+        <files folder="admin">
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <filename>controller.php</filename>
+            <filename>focalpoint.php</filename>
+            <filename>focalpoint.xml</filename>
+            <filename>index.html</filename>
+            <filename>README.md</filename>
+            <folder>assets</folder>
+            <folder>controllers</folder>
+            <folder>helpers</folder>
+            <folder>models</folder>
+            <folder>sql</folder>
+            <folder>tables</folder>
+            <folder>views</folder>
+        </files>
+        <languages folder="language/admin">
+            <language tag="en-GB">en-GB/en-GB.com_focalpoint.ini</language>
+            <language tag="en-GB">en-GB/en-GB.com_focalpoint.sys.ini</language>
+        </languages>
+    </administration>
+</extension>
