@@ -4,7 +4,7 @@
 
 **FocalPoint is no longer actively developed or updated. At the current time, Focalpoint is fully functional and compatible with Joomla 3.7.5. I will still provide full support for any users with an active subscription purchased from the Focalpointx.com website. Please send email to me at the address on your subscription confirmation and I'll respond as quick as possible.**
 
-**Developing and maintaining FocalPoint over the past 3 years has been a blast. I have learned a lot from this experience. Especially, in regards to  managing the expectations of people using free software. It has been inspiring seeing the many creative implementations people have built using a tool I created. I thank all of you.**
+**Developing and maintaining FocalPoint over the past 3 years has been a blast. I have learned a lot from this experience. It has been inspiring seeing the many creative implementations people have built using a tool I created. I thank all of you.**
 
 **Moving forward, FocalPoint consumes too much time which isn't covered by the subscription fees. My regular business and my sanity have suffered for it. It's been a tough decision but the FocalPointx.com site has been deleted.**
 
