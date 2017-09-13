@@ -21,15 +21,10 @@ This is the repo for the FocalPoint mapping extension for Joomla. It is compatib
 
 Use this extension to create advanced map based directories with custom legends, markers, infoboxes and hundreds of locations. Define the content for each location using CCK functionality. And, give your users the ability to search and filter using familiar UI elements.
 
-Full details are available at [focalpointx.com](http://focalpointx.com/)
-
 **Installation Instructions** 
 1. Download the latest zipped installation archive from this Github repo or from [focalpointx.com](http://focalpointx.com/). 
 2. Install the component via the Joomla extension manager. No need to unzip the archive.
 3. Follow the on screen wizard to set up your first map.
-
-**Pro options**
-We also provide [professional add-ons](http://focalpointx.com/download/pro-downloads.html) - that extend the functionality of FocalPoint in various ways. Check out the [Pro](http://focalpointx.com/demos/focalpoint-pro/demo-4-pro-add-ons.html) [Demos](http://focalpointx.com/demos/focalpoint-pro/demo-3.html). 
 
 These extensions are available to subscribers. Subscribers also receive support and a money back guarantee.
 
