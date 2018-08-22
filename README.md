@@ -19,6 +19,13 @@ The license under which the FocalPoint extension for Joomla! is released is the 
 Under the terms of this license you are free to use the software in any way you wish. You are free to modify the software in any way you wish and create derivative works.
 
 
+#### Build 1.2.5
+
+Fixes a bug where unpublished and trashed location types and legends would still be displayed.
+Adds maximum zoom to global configuration and map configuration options.
+Fixes a bug where a quotation mark in a location title would break the front end javascript.
+
+
 #### Build 1.2.4
 
 Change to focalpoint.xml enables a field for KML file storage for a new plugin in the works.

@@ -4,6 +4,13 @@ Focalpoint
 Advanced mapping extension for Joomla CMS
 -----------------------------------------
 
+Current Build 1.2.5
+
+Fixes a bug where unpublished and trashed location types and legends would still be displayed.
+Adds maximum zoom to global configuration and map configuration options.
+Fixes a bug where a quotation mark in a location title would break the front end javascript.
+
+
 Current Build 1.2.4
 
 Change to focalpoint.xml enables a field for KML file storage for a new plugin in the works.

@@ -100,6 +100,7 @@ $script ='
         var mapProp = {
             center:new google.maps.LatLng('.$this->item->latitude.','.$this->item->longitude.'),
             zoom:'.$this->item->params->get('zoom').',
+            maxZoom:'.$this->item->params->get('maxzoom','null').',
             mapTypeControl: '.$this->item->params->get('mapTypeControl').',
             zoomControl: '.$this->item->params->get('zoomControl').',
             scrollwheel: '.$this->item->params->get('scrollwheel').',
@@ -130,8 +131,8 @@ foreach ($this->item->markerdata as $marker) {
     // that field in the infobox and location list
     if (!empty($marker->customfields->yourcustomfield->data)) $marker->infodescription .= $this->renderField($marker->customfields->yourcustomfield, true, true);
 
-    $boxtext ='<h4>'.$marker->title.'</h4><div class=\"infoboxcontent\">'.addslashes(str_replace("src=\"images","src=\"".JUri::base(true)."/images",(str_replace(array("\n", "\t", "\r"), '', $marker->infodescription))));
-    if (isset($marker->link)) $boxtext.='<p class=\"infoboxlink\"><a title=\"'.$marker->title.'\" href=\"'.$marker->link.'\">Find out more</a></p>';
+    $boxtext ='<h4>'.addslashes($marker->title).'</h4><div class=\"infoboxcontent\">'.addslashes(str_replace("src=\"images","src=\"".JUri::base(true)."/images",(str_replace(array("\n", "\t", "\r"), '', $marker->infodescription))));
+    if (isset($marker->link)) $boxtext.='<p class=\"infoboxlink\"><a title=\"'.addslashes($marker->title).'\" href=\"'.$marker->link.'\">Find out more</a></p>';
 
     $boxtext.='<div class=\"infopointer\"></div></div>';
     $script .= '

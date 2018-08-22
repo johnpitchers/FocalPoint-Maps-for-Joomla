@@ -235,21 +235,7 @@ class FocalpointModelMap extends JModelForm
 			AND d.locationtype_id = b.id
 			AND e.id = a.type
 			AND b.legend = c.id
-			WHERE a.map_id = ". $id ." AND a.state = 1
-			ORDER BY c.ordering, b.ordering
-			";
-		}else{
-			$query ="
-			SELECT c.title AS legend, c.subtitle AS legendsubtitle, c.alias AS legendalias,
-			b.title AS locationtype, b.id as locationtype_id, b.alias AS locationtypealias, b.marker AS marker_type,
-			a.id, a.state, a.title, a.alias, a.map_id, a.type, a.address, a.phone, a.description,
-			a.customfieldsdata,
-			a.latitude, a.longitude, a.marker AS marker_location, a.linktype, a.altlink, a.maplinkid, a.menulink, a.params,
-			CONCAT('index.php?option=com_focalpoint&view=location&id=',a.id) AS link
-			FROM #__focalpoint_locations AS a
-			LEFT JOIN #__focalpoint_locationtypes AS b ON a.type = b.id
-			LEFT JOIN #__focalpoint_legends AS c ON b.legend = c.id
-			WHERE a.map_id = ".$id." AND a.state = 1
+			WHERE a.map_id = ". $id ." AND a.state = 1 AND b.state = 1 AND c.state = 1
 			ORDER BY c.ordering, b.ordering
 			";
 		}
