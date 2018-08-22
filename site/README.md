@@ -4,7 +4,15 @@ Focalpoint
 Advanced mapping extension for Joomla CMS
 -----------------------------------------
 
-Current Build 1.2.5
+Current Build 1.2.6
+
+Adds language entry for "Find out more".
+Fixes issue with the Geocoder Tool not loading on the maps page in the administrator over https.
+Fixes spelling error "Suburn or Postal code" as default search text.
+Fixes unclosed <ul> tags when sidebars are placed at the top or bottom of the map.
+
+
+Build 1.2.5
 
 Fixes a bug where unpublished and trashed location types and legends would still be displayed.
 Adds maximum zoom to global configuration and map configuration options.

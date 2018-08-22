@@ -39,8 +39,9 @@ defined('_JEXEC') or die('Restricted access');
             $liclass = $item->locationtypealias;
         }
     }
+    $html .="</ul>";
 	$html .="</div>";
-	$html .="</ul></div>";
+	$html .="</div>";
 	$html .= $this->loadTemplate('legend_buttons');
     echo $html;
 ?>

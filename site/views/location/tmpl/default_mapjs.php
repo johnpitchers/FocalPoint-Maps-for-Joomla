@@ -54,7 +54,7 @@ $infodescription = "";
 if ($this->item->params->get('infoshowaddress') && $this->item->address !="") $infodescription .= "<p>".JText::_($this->item->address)."</p>";
 if ($this->item->params->get('infoshowphone') && $this->item->phone !="") $infodescription .= "<p>".JText::_($this->item->phone)."</p>";
 if ($this->item->params->get('infoshowintro') && $this->item->description !="") $infodescription .= $this->item->description;
-$boxtext ='<h4>'.$this->item->title.'</h4><div class=\"infoboxcontent\">'.addslashes(str_replace("src=\"images","src=\"".JUri::base(true)."/images",(str_replace(array("\n", "\t", "\r"), '', $infodescription))));
+$boxtext ='<h4>'.addslashes($this->item->title).'</h4><div class=\"infoboxcontent\">'.addslashes(str_replace("src=\"images","src=\"".JUri::base(true)."/images",(str_replace(array("\n", "\t", "\r"), '', $infodescription))));
 $boxtext.='<div class=\"infopointer\"></div></div>';
 
 $script .= '

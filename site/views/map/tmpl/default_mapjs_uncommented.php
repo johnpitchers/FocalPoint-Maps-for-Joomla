@@ -132,7 +132,7 @@ foreach ($this->item->markerdata as $marker) {
     if (!empty($marker->customfields->yourcustomfield->data)) $marker->infodescription .= $this->renderField($marker->customfields->yourcustomfield, true, true);
 
     $boxtext ='<h4>'.addslashes($marker->title).'</h4><div class=\"infoboxcontent\">'.addslashes(str_replace("src=\"images","src=\"".JUri::base(true)."/images",(str_replace(array("\n", "\t", "\r"), '', $marker->infodescription))));
-    if (isset($marker->link)) $boxtext.='<p class=\"infoboxlink\"><a title=\"'.addslashes($marker->title).'\" href=\"'.$marker->link.'\">Find out more</a></p>';
+    if (isset($marker->link)) $boxtext.='<p class=\"infoboxlink\"><a title=\"'.addslashes($marker->title).'\" href=\"'.$marker->link.'\">'.JText::_('COM_FOCALPOINT_FIND_OUT_MORE').'</a></p>';
 
     $boxtext.='<div class=\"infopointer\"></div></div>';
     $script .= '

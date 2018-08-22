@@ -246,7 +246,7 @@ In development for 1.2
         <field
                 name="mapsearchprompt"
                 type="text"
-                default="Suburn or Postal Code"
+                default="Suburb or Postal code"
                 label="COM_FOCALPOINT_FORM_LBL_CONFIG_MAP_SEARCH_PROMPT_LBL"
                 description="COM_FOCALPOINT_FORM_LBL_CONFIG_MAP_SEARCH_PROMPT_DESC"
                 size="40"

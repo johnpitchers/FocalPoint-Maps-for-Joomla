@@ -22,7 +22,7 @@ $metaFieldSets = $this->form->getFieldsets('metadata');
 // Import CSS + JS
 $document = JFactory::getDocument();
 $document->addStyleSheet('components/com_focalpoint/assets/css/focalpoint.css');
-$document->addScript('http://maps.google.com/maps/api/js?sensor=false');
+$document->addScript('//maps.google.com/maps/api/js?sensor=false');
 ?>
 
 <script type="text/javascript">
