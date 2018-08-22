@@ -27,8 +27,8 @@ $sidebar = ($this->item->params->get('legendposition') == "left" || $this->item-
             </div>
             <?php } ?>
             <div id="fp_map_buttons" class="input-append">
-                <button class="btn btn-mini" id="fp_reset" onclick="return false;">Reset map</button>
-                <button class="btn btn-mini" id="fp_toggle" data-togglestate="<?php echo $this->item->params->get('showmarkers'); ?>" onclick="return false;"></button>
+                <button class="btn btn-mini" id="fp_reset" onclick="return false;"><?php echo JText::_('COM_FOCALPOINT_BUTTON_RESET_MAP'); ?></button>
+                <button class="btn btn-mini" id="fp_toggle" data-togglestate="on" onclick="return false;"></button>
             </div>
         </form>
 	</div>

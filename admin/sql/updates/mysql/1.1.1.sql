@@ -1,0 +1,1 @@
+ALTER TABLE `#__focalpoint_locations` ADD `menulink` VARCHAR(300) NOT NULL AFTER `maplinkid`;

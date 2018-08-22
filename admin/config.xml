@@ -158,6 +158,12 @@
             <option value="1">JYES</option>
         </field>
 
+        <field name="showlistfirst" type="list" default="0" label="COM_FOCALPOINT_FORM_LBL_CONFIG_LOCATION_LIST_TAB_FIRST_LBL"
+               description="COM_FOCALPOINT_FORM_LBL_CONFIG_LOCATION_LIST_TAB_FIRST_DESC">
+            <option value="0">JNO</option>
+            <option value="1">JYES</option>
+        </field>
+
     </fieldset>
 
     <!-- ######################################################################################## -->

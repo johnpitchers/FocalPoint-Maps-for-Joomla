@@ -10,7 +10,10 @@
 // no direct access
 defined('_JEXEC') or die;
 $params = JComponentHelper::getParams('com_focalpoint');
-$showlisttab = $params->get('locationlist');
+
+// Location List tab parameters
+$showlisttab = $this->item->params->get('locationlist');
+$listtabfirst = $this->item->params->get('showlistfirst');
 
 //Load admin language file
 $lang = JFactory::getLanguage();
@@ -83,9 +86,12 @@ $pageclass_sfx = $this->item->params->get('pageclass_sfx');
             <?php if (count($this->item->tabs) || $showlisttab) { ?>
             <div id="tab-container" class="tab-container">
                 <ul class='nav nav-tabs'>
-                    <li class='active'><a href="#tabs1-map" data-toggle="tab">Map</a></li>
-                    <?php if ($showlisttab) { ?>
-                        <li class=''><a id="locationlisttab" href="#">Location list</a></li>
+                    <?php if ($showlisttab && $listtabfirst) { ?>
+                        <li class=''><a id="locationlisttab" href="#"><?php echo JText::_('COM_FOCALPOINT_LIST')?></a></li>
+                    <?php } ?>
+                    <li class='active'><a href="#tabs1-map" data-toggle="tab"><?php echo JText::_('COM_FOCALPOINT_MAP')?></a></li>
+                    <?php if ($showlisttab && !$listtabfirst) { ?>
+                        <li class=''><a id="locationlisttab" href="#"><?php echo JText::_('COM_FOCALPOINT_LIST')?></a></li>
                     <?php } ?>
                     <?php if (count($this->item->tabs)) { ?>
                         <?php foreach ($this->item->tabs as $key => $tab) { ?>
@@ -121,9 +127,6 @@ $pageclass_sfx = $this->item->params->get('pageclass_sfx');
                                 </div>
                             <?php } ?>
                         </div>
-                        <?php if ($legendposition == "left" || $legendposition == "right") { ?>
-                            <?php //echo $this->loadTemplate('legend_buttons'); ?>
-                        <?php } ?>
                         <?php if (count($this->item->tabs) || $showlisttab) { ?>
                     </div>
                 <?php if (count($this->item->tabs)) { ?>

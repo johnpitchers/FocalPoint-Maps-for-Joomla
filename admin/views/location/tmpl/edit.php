@@ -121,6 +121,7 @@ $multicategorisation = true;
         <?php echo $this->getForm()->getControlGroup('linktype'); ?>
         <?php echo $this->getForm()->getControlGroup('altlink'); ?>
         <?php echo $this->getForm()->getControlGroup('maplinkid'); ?>
+        <?php echo $this->getForm()->getControlGroup('menuitemlink'); ?>
     </div>
 
     <?php echo JHtml::_('bootstrap.endTab'); ?>

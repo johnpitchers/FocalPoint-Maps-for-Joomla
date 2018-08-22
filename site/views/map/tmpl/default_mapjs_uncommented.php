@@ -32,6 +32,7 @@ $mapsearchprompt    = $this->item->params->get('mapsearchprompt');
 $searchassist       = ", ".$this->item->params->get('searchassist');
 $fitbounds          = $this->item->params->get('fitbounds');
 $markerclusters     = $this->item->params->get('markerclusters');
+$listtabfirst       = $this->item->params->get('showlistfirst');
 if($markerclusters) {
     $document->addScript(JURI::base().'plugins/focalpoint/markerclusters/assets/markerclusterer.js');
 }
@@ -46,7 +47,9 @@ $script ='
 	var searchassist = "'.$searchassist.'";
 	var fitbounds = '.($fitbounds?"1":"0").';
 	var markerclusters = '.($markerclusters?"1":"0").';
+	var listtabfirst = '.($listtabfirst?"1":"0").';
 	var map;
+	var mapCenter = new google.maps.LatLng('.$this->item->latitude.','.$this->item->longitude.');
 	var markerCluster;
     var clusterMarkers = [];
     var marker= new Array();
@@ -67,7 +70,7 @@ $script ='
 		}
 		var locationPlural = "'.JText::_("COM_FOCALPOINT_LOCATIONS").'";
 		if (activeCount == 1) { locationPlural = "'.JText::_("COM_FOCALPOINT_LOCATION").'"; }
-		jQuery("#activecount").html("Showing " + activeCount +" "+locationPlural+locationTxt+".");
+		jQuery("#activecount").html("'.JText::_("COM_FOCALPOINT_SHOWING").' " + activeCount +" "+locationPlural+locationTxt+".");
 		if (activeCount == 0){
 			if (jQuery(".nolocations").length == 0){
 				jQuery("#fp_locationlist .fp_ll_holder").append("<div class=\"nolocations\">'.JText::_("COM_FOCALPOINT_NO_LOCATION_TYPES_SELECTED").'</div>");
@@ -297,7 +300,7 @@ $script .= '
 			jQuery("#fp_toggle").each(function(){
 				if ("on" == "'.$this->item->params->get('showmarkers').'") {
 					jQuery(this).data("togglestate","off");
-					jQuery(this).html("Hide all");
+					jQuery(this).html("'. JText::_('COM_FOCALPOINT_BUTTTON_HIDE_ALL').'");
 					jQuery(".markertoggles").each(function(e){
 						if (jQuery(this).hasClass("active")) {
 							jQuery(this).trigger("click");
@@ -306,7 +309,7 @@ $script .= '
 					});
 				} else {
 					jQuery(this).data("togglestate","on");
-					jQuery(this).html("Show all");
+					jQuery(this).html("'. JText::_('COM_FOCALPOINT_BUTTTON_SHOW_ALL').'");
 					jQuery(".markertoggles").each(function(e){
 						if (jQuery(this).hasClass("active")) {
 							jQuery(this).trigger("click");
@@ -322,7 +325,7 @@ $script .= '
 			allowScrollTo = false;
 			if (jQuery(this).data("togglestate") == "on") {
 				jQuery(this).data("togglestate","off");
-				jQuery(this).html("Hide all");
+				jQuery(this).html("'. JText::_('COM_FOCALPOINT_BUTTTON_HIDE_ALL').'");
 				jQuery(".markertoggles").each(function(e){
 					if (!jQuery(this).hasClass("active")) {
 						jQuery(this).trigger("click");
@@ -330,7 +333,7 @@ $script .= '
 				});
 			} else {
 				jQuery(this).data("togglestate","on");
-				jQuery(this).html("Show all");
+				jQuery(this).html("'. JText::_('COM_FOCALPOINT_BUTTTON_SHOW_ALL').'");
 				jQuery(".markertoggles").each(function(e){
 					if (jQuery(this).hasClass("active")) {
 						jQuery(this).trigger("click");
@@ -372,7 +375,7 @@ $script .= '
 						});
 						jQuery("#fp_toggle").each(function(){
 							jQuery(this).data("togglestate","off");
-							jQuery(this).html("Hide all");
+							jQuery(this).html("'. JText::_('COM_FOCALPOINT_BUTTTON_HIDE_ALL').'");
 							jQuery(".markertoggles").each(function(e){
 								if (jQuery(this).hasClass("active")) {
 									jQuery(this).trigger("click");
@@ -429,6 +432,18 @@ $script .= '
 
         if (markerclusters){
             markerCluster = new MarkerClusterer(map, clusterMarkers);
+        }
+
+        if (showlisttab && (listtabfirst == 1)) {
+            setTimeout(function(){
+                jQuery("#locationlisttab").trigger("click");
+            },100);
+        }
+
+        if ("off" == "'.$this->item->params->get('showmarkers').'") {
+            setTimeout(function(){
+                jQuery("#fp_toggle").trigger("click");
+            },100);
         }
     }
     google.maps.event.addDomListener(window, \'load\', initialize);

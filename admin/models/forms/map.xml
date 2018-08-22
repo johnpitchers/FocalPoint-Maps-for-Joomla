@@ -254,6 +254,20 @@
                 <option value="off">Hide</option>
             </field>
 
+            <field name="locationlist" type="list" default="" label="COM_FOCALPOINT_FORM_LBL_CONFIG_LOCATION_LIST_LBL"
+                   description="COM_FOCALPOINT_FORM_LBL_CONFIG_LOCATION_LIST_DESC">
+                <option value="">JGLOBAL_USE_GLOBAL</option>
+                <option value="0">JNO</option>
+                <option value="1">JYES</option>
+            </field>
+
+            <field name="showlistfirst" type="list" default="" label="COM_FOCALPOINT_FORM_LBL_CONFIG_LOCATION_LIST_TAB_FIRST_LBL"
+                   description="COM_FOCALPOINT_FORM_LBL_CONFIG_LOCATION_LIST_TAB_FIRST_DESC">
+                <option value="">JGLOBAL_USE_GLOBAL</option>
+                <option value="0">JNO</option>
+                <option value="1">JYES</option>
+            </field>
+
         </fieldset>
     </fields>
 
