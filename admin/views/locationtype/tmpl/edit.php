@@ -70,14 +70,14 @@ $document->addStyleSheet('components/com_focalpoint/assets/css/focalpoint.css');
                         switch ($thiskey[0]) {
                             case "textbox":
                                 $inserthtml .= '<fieldset><legend><i class="icon-menu"></i>&nbsp;Textbox</legend><a class="hasTooltip deletefield icon-trash" data-original-title="<strong>Delete this field?</strong><br />This can NOT be undone."></a>';
-                                $inserthtml .= '<div class="control-group"><div class="control-label"><label>Name</label></div><div class="controls"><input type="text" class="field" name="jform[custom][textbox.' . $thiskey[1] . '][name]" value="' . $array['name'] . '" /></div></div>';
+                                $inserthtml .= '<div class="control-group"><div class="control-label"><label>Name</label></div><div class="controls"><input readonly type="text" class="field" name="jform[custom][textbox.' . $thiskey[1] . '][name]" value="' . $array['name'] . '" /></div></div>';
                                 $inserthtml .= '<div class="control-group"><div class="control-label"><label>Tool tip</label></div><div class="controls"><input type="text" class="field" name="jform[custom][textbox.' . $thiskey[1] . '][description]" value="' . $array['description'] . '" /></div></div>';
                                 $inserthtml .= '<div class="control-group"><div class="control-label"><label>Label</label></div><div class="controls"><input type="text" class="field" name="jform[custom][textbox.' . $thiskey[1] . '][label]" value="' . $array['label'] . '" /></div></div>';
                                 $inserthtml .= '</fieldset>';
                                 break;
                             case "textarea":
                                 $inserthtml .= '<fieldset><legend><i class="icon-menu"></i>&nbsp;Textarea</legend><a class="hasTooltip deletefield icon-trash" data-original-title="<strong>Delete this field?</strong><br />This can NOT be undone."></a>';
-                                $inserthtml .= '<div class="control-group"><div class="control-label"><label>Name</label></div><div class="controls"><input type="text" class="field" name="jform[custom][textarea.' . $thiskey[1] . '][name]" value="' . $array['name'] . '" /></div></div>';
+                                $inserthtml .= '<div class="control-group"><div class="control-label"><label>Name</label></div><div class="controls"><input readonly type="text" class="field" name="jform[custom][textarea.' . $thiskey[1] . '][name]" value="' . $array['name'] . '" /></div></div>';
                                 $inserthtml .= '<div class="control-group"><div class="control-label"><label>Tool tip</label></div><div class="controls"><input type="text" class="field" name="jform[custom][textarea.' . $thiskey[1] . '][description]" value="' . $array['description'] . '" /></div></div>';
                                 $inserthtml .= '<div class="control-group"><div class="control-label"><label>Label</label></div><div class="controls"><input type="text" class="field" name="jform[custom][textarea.' . $thiskey[1] . '][label]" value="' . $array['label'] . '" /></div></div>';
                                 $inserthtml .= '<div class="control-group"><div class="control-label"><label>Load Editor</label></div><div class="controls"><select name="jform[custom][textarea.' . $thiskey[1] . '][loadeditor]" class="inputbox" size="1" >';
@@ -88,7 +88,7 @@ $document->addStyleSheet('components/com_focalpoint/assets/css/focalpoint.css');
                                 break;
                             case "image":
                                 $inserthtml .= '<fieldset><legend><i class="icon-menu"></i>&nbsp;Image</legend><a class="hasTooltip deletefield icon-trash" data-original-title="<strong>Delete this field?</strong><br />This can NOT be undone."></a>';
-                                $inserthtml .= '<div class="control-group"><div class="control-label"><label>Name</label></div><div class="controls"><input type="text" class="field" name="jform[custom][image.' . $thiskey[1] . '][name]" value="' . $array['name'] . '" /></div></div>';
+                                $inserthtml .= '<div class="control-group"><div class="control-label"><label>Name</label></div><div class="controls"><input readonly type="text" class="field" name="jform[custom][image.' . $thiskey[1] . '][name]" value="' . $array['name'] . '" /></div></div>';
                                 $inserthtml .= '<div class="control-group"><div class="control-label"><label>Tool tip</label></div><div class="controls"><input type="text" class="field" name="jform[custom][image.' . $thiskey[1] . '][description]" value="' . $array['description'] . '" /></div></div>';
                                 $inserthtml .= '<div class="control-group"><div class="control-label"><label>Label</label></div><div class="controls"><input type="text" class="field" name="jform[custom][image.' . $thiskey[1] . '][label]" value="' . $array['label'] . '" /></div></div>';
                                 $inserthtml .= '<div class="control-group"><div class="control-label"><label>Default directory</label></div><div class="controls"><input type="text" class="field" name="jform[custom][image.' . $thiskey[1] . '][directory]" value="' . $array['directory'] . '" /></div></div>';
@@ -96,18 +96,35 @@ $document->addStyleSheet('components/com_focalpoint/assets/css/focalpoint.css');
                                 break;
                             case "link":
                                 $inserthtml .= '<fieldset><legend><i class="icon-menu"></i>&nbsp;Link</legend><a class="hasTooltip deletefield icon-trash" data-original-title="<strong>Delete this field?</strong><br />This can NOT be undone."></a>';
-                                $inserthtml .= '<div class="control-group"><div class="control-label"><label>Name</label></div><div class="controls"><input type="text" class="field" name="jform[custom][link.' . $thiskey[1] . '][name]" value="' . $array['name'] . '" /></div></div>';
+                                $inserthtml .= '<div class="control-group"><div class="control-label"><label>Name</label></div><div class="controls"><input readonly type="text" class="field" name="jform[custom][link.' . $thiskey[1] . '][name]" value="' . $array['name'] . '" /></div></div>';
                                 $inserthtml .= '<div class="control-group"><div class="control-label"><label>Tool tip</label></div><div class="controls"><input type="text" class="field" name="jform[custom][link.' . $thiskey[1] . '][description]" value="' . $array['description'] . '" /></div></div>';
                                 $inserthtml .= '<div class="control-group"><div class="control-label"><label>Label</label></div><div class="controls"><input type="text" class="field" name="jform[custom][link.' . $thiskey[1] . '][label]" value="' . $array['label'] . '" /></div></div>';
                                 $inserthtml .= '</fieldset>';
                                 break;
                             case "email":
                                 $inserthtml .= '<fieldset><legend><i class="icon-menu"></i>&nbsp;Email</legend><a class="hasTooltip deletefield icon-trash" data-original-title="<strong>Delete this field?</strong><br />This can NOT be undone."></a>';
-                                $inserthtml .= '<div class="control-group"><div class="control-label"><label>Name</label></div><div class="controls"><input type="text" class="field" name="jform[custom][email.' . $thiskey[1] . '][name]" value="' . $array['name'] . '" /></div></div>';
+                                $inserthtml .= '<div class="control-group"><div class="control-label"><label>Name</label></div><div class="controls"><input readonly type="text" class="field" name="jform[custom][email.' . $thiskey[1] . '][name]" value="' . $array['name'] . '" /></div></div>';
                                 $inserthtml .= '<div class="control-group"><div class="control-label"><label>Tool tip</label></div><div class="controls"><input type="text" class="field" name="jform[custom][email.' . $thiskey[1] . '][description]" value="' . $array['description'] . '" /></div></div>';
                                 $inserthtml .= '<div class="control-group"><div class="control-label"><label>Label</label></div><div class="controls"><input type="text" class="field" name="jform[custom][email.' . $thiskey[1] . '][label]" value="' . $array['label'] . '" /></div></div>';
                                 $inserthtml .= '</fieldset>';
                                 break;
+                            case "selectlist":
+                                $inserthtml .= '<fieldset><legend><i class="icon-menu"></i>&nbsp;Select List</legend></i><a class="hasTooltip deletefield icon-trash" data-original-title="<strong>Delete this field?</strong><br />This can NOT be undone."></a>';
+                                $inserthtml .= '<div class="control-group"><div class="control-label"><label>Name</label></div><div class="controls"><input readonly type="text" class="field" name="jform[custom][selectlist.' . $thiskey[1] . '][name]" value="' . $array['name'] . '" /></div></div>';
+                                $inserthtml .= '<div class="control-group"><div class="control-label"><label>Tool tip</label></div><div class="controls"><input type="text" class="field" name="jform[custom][selectlist.' . $thiskey[1] . '][description]" value="' . $array['description'] . '" /></div></div>';
+                                $inserthtml .= '<div class="control-group"><div class="control-label"><label>Label</label></div><div class="controls"><input type="text" class="field" name="jform[custom][selectlist.' . $thiskey[1] . '][label]" value="' . $array['label'] . '" /></div></div>';
+                                $inserthtml .= '<div class="control-group"><div class="control-label"><label>Options (one to a line)</label></div><div class="controls"><textarea style="width:300px;" rows="20" class="field" name="jform[custom][selectlist.' . $thiskey[1] . '][options]" >' . $array['options'] . '</textarea></div></div>';
+                                $inserthtml .= '</fieldset>';
+                                break;
+                            case "multiselect":
+                                $inserthtml .= '<fieldset><legend><i class="icon-menu"></i>&nbsp;Multi Select</legend></i><a class="hasTooltip deletefield icon-trash" data-original-title="<strong>Delete this field?</strong><br />This can NOT be undone."></a>';
+                                $inserthtml .= '<div class="control-group"><div class="control-label"><label>Name</label></div><div class="controls"><input readonly type="text" class="field" name="jform[custom][multiselect.' . $thiskey[1] . '][name]" value="' . $array['name'] . '" /></div></div>';
+                                $inserthtml .= '<div class="control-group"><div class="control-label"><label>Tool tip</label></div><div class="controls"><input type="text" class="field" name="jform[custom][multiselect.' . $thiskey[1] . '][description]" value="' . $array['description'] . '" /></div></div>';
+                                $inserthtml .= '<div class="control-group"><div class="control-label"><label>Label</label></div><div class="controls"><input type="text" class="field" name="jform[custom][multiselect.' . $thiskey[1] . '][label]" value="' . $array['label'] . '" /></div></div>';
+                                $inserthtml .= '<div class="control-group"><div class="control-label"><label>Options (one to a line)</label></div><div class="controls"><textarea style="width:300px;" rows="20" class="field" name="jform[custom][multiselect.' . $thiskey[1] . '][options]" >' . $array['options'] . '</textarea></div></div>';
+                                $inserthtml .= '</fieldset>';
+                                break;
+
                         }
                         $customFieldId = $thiskey[1];
                     }
@@ -136,7 +153,9 @@ $document->addStyleSheet('components/com_focalpoint/assets/css/focalpoint.css');
             </dd>
             <dd><a id="add-image" class="btn btn-small element-add" href="#"><i class="icon-plus"></i> Image</a></dd>
             <dd><a id="add-link" class="btn btn-small element-add" href="#"><i class="icon-plus"></i> Link</a></dd>
-            <dd><a id="add-email" class="btn btn-small element-add" href="#"><i class="icon-plus"></i>Email</a></dd>
+            <dd><a id="add-email" class="btn btn-small element-add" href="#"><i class="icon-plus"></i> Email</a></dd>
+            <dd><a id="add-selectlist" class="btn btn-small element-add" href="#"><i class="icon-plus"></i> Select List</a></dd>
+            <dd><a id="add-multiselect" class="btn btn-small element-add" href="#"><i class="icon-plus"></i> Multi Select</a></dd>
         </dl>
     </div>
     <?php echo JHtml::_('bootstrap.endTab'); ?>
@@ -245,6 +264,44 @@ $document->addStyleSheet('components/com_focalpoint/assets/css/focalpoint.css');
             inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Name</label></div><div class="controls"><input type="text" class="field" name="jform[custom][email.' + id + '][name]" value="" /></div></div>';
             inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Tool tip</label></div><div class="controls"><input type="text" class="field" name="jform[custom][email.' + id + '][description]" value="" /></div></div>';
             inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Label</label></div><div class="controls"><input type="text" class="field" name="jform[custom][email.' + id + '][label]" value="" /></div></div>';
+            inserthtml = inserthtml + '</fieldset>';
+            jQuery(inserthtml).fadeIn('slow').appendTo('.customfields');
+            jQuery('.hasTooltip').tooltip({"html": true, "container": "body"});
+            jQuery('.deletefield').click(function () {
+                if (confirm('Delete this field?')) {
+                    jQuery(this).tooltip('hide');
+                    jQuery(this).parent().remove();
+                }
+            });
+            return false;
+        });
+
+        jQuery('#add-selectlist').click(function () {
+            var id = makeid();
+            var inserthtml = '<fieldset><legend><i class="icon-menu"></i>&nbsp;Select List</legend><a class="hasTooltip deletefield icon-trash" data-original-title="<strong>Delete this field?</strong><br />This can NOT be undone."></a>';
+            inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Name</label></div><div class="controls"><input type="text" class="field" name="jform[custom][selectlist.' + id + '][name]" value="" /></div></div>';
+            inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Tool tip</label></div><div class="controls"><input type="text" class="field" name="jform[custom][selectlist.' + id + '][description]" value="" /></div></div>';
+            inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Label</label></div><div class="controls"><input type="text" class="field" name="jform[custom][selectlist.' + id + '][label]" value="" /></div></div>';
+            inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Options (one to a line)</label></div><div class="controls"><textarea style="width:300px;" rows="20" class="field" name="jform[custom][selectlist.' + id + '][options]" value="" /></div></div>';
+            inserthtml = inserthtml + '</fieldset>';
+            jQuery(inserthtml).fadeIn('slow').appendTo('.customfields');
+            jQuery('.hasTooltip').tooltip({"html": true, "container": "body"});
+            jQuery('.deletefield').click(function () {
+                if (confirm('Delete this field?')) {
+                    jQuery(this).tooltip('hide');
+                    jQuery(this).parent().remove();
+                }
+            });
+            return false;
+        });
+
+        jQuery('#add-multiselect').click(function () {
+            var id = makeid();
+            var inserthtml = '<fieldset><legend><i class="icon-menu"></i>&nbsp;Multi Select</legend><a class="hasTooltip deletefield icon-trash" data-original-title="<strong>Delete this field?</strong><br />This can NOT be undone."></a>';
+            inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Name</label></div><div class="controls"><input type="text" class="field" name="jform[custom][multiselect.' + id + '][name]" value="" /></div></div>';
+            inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Tool tip</label></div><div class="controls"><input type="text" class="field" name="jform[custom][multiselect.' + id + '][description]" value="" /></div></div>';
+            inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Label</label></div><div class="controls"><input type="text" class="field" name="jform[custom][multiselect.' + id + '][label]" value="" /></div></div>';
+            inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Options (one to a line)</label></div><div class="controls"><textarea style="width:300px;" rows="20" class="field" name="jform[custom][multiselect.' + id + '][options]" value="" /></div></div>';
             inserthtml = inserthtml + '</fieldset>';
             jQuery(inserthtml).fadeIn('slow').appendTo('.customfields');
             jQuery('.hasTooltip').tooltip({"html": true, "container": "body"});

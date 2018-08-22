@@ -5,6 +5,7 @@
  * @copyright   Copyright (C) 2013. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  * @author      John Pitchers <john@viperfish.com.au> - http://viperfish.com.au
+ *
  */
 
 // no direct access
@@ -143,7 +144,6 @@ $pageclass_sfx = $this->item->params->get('pageclass_sfx');
                 echo "<textarea style='width:100%;height:500px;'><pre>";
                 print_r($this->item);
                 echo "</pre></textarea>";
-                echo "sdfsdf";
             } ?>
         </div>
     </div>

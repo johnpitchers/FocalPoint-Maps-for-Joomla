@@ -130,12 +130,6 @@ class FocalpointViewLocation extends JViewLegacy
                         $inserthtml .= '<div class="control-group"><div class="control-label">&nbsp;</div><div class="controls"><select name="jform[custom][' . $key1 . '.' . $array['name'] . '][target]" class="inputbox">';
                         $inserthtml .= '<option value="0" ' . ($value['target'] ? '' : 'selected="selected"') . '>No</option>';
                         $inserthtml .= '<option value="1" ' . ($value['target'] ? 'selected="selected"' : '') . '>Yes</option></select><br><span class="hasTooltip small" title="Open in new window?">New Window?</span></div></div>';
-
-                        //$inserthtml .= '<li><label class="hasTip" title="'.$array['description'].'">'.$array['label'].'</label><input type="text" class="field" name="jform[custom]['.$key1.'.'.$array['name'].'][url]" value="'.$value['url'].'" /><span class="hasTip linkhelper" title="The URL to link to. Include http:// at the start for external links.">URL</span></li>';
-                        //$inserthtml .= '<li><label>&nbsp;</label><input type="text" class="field" name="jform[custom]['.$key1.'.'.$array['name'].'][linktext]" value="'.$value['linktext'].'" /><span class="hasTip linkhelper" title="Optional link text. If left blank the URL will be used as link text.">Link text</span></li>';
-                        //$inserthtml .= '<li><label>&nbsp;</label><select name="jform[custom]['.$key1.'.'.$array['name'].'][target]" class="inputbox">';
-                        //$inserthtml .= '<option value="0" '.($value['target']?'':'selected="selected"').'>No</option>';
-                        //$inserthtml .= '<option value="1" '.($value['target']?'selected="selected"':'').'>Yes</option></select><span class="hasTip linkhelper" title="Open in new window?">New Window?</span></li>';
                         break;
                     case "email":
                         if (!is_array($value)) {
@@ -145,9 +139,35 @@ class FocalpointViewLocation extends JViewLegacy
                         }
                         $inserthtml .= '<div class="control-group"><div class="control-label"><label id="jform[custom][' . $key1 . '.' . $array['name'] . ']-lbl" for="jform[custom][' . $key1 . '.' . $array['name'] . ']" class="hasTooltip" title="' . $array['description'] . '">' . $array['label'] . '</label></div><div class="controls"><input type="text" class="field" name="jform[custom][' . $key1 . '.' . $array['name'] . '][email]" value="' . $value['email'] . '" /><br><span class="small hasTooltip" title="The actual email address. Do not include mailto:. This will be added automatically">email address</span></div></div>';
                         $inserthtml .= '<div class="control-group"><div class="control-label">&nbsp;</div><div class="controls"><input type="text" class="field" name="jform[custom][' . $key1 . '.' . $array['name'] . '][linktext]" value="' . $value['linktext'] . '" /><br><span class="small hasTooltip" title="Optional link text. If left blank the URL will be used as link text.">Link text</span></div></div>';
+                        break;
+                    case "selectlist":
+                        $array['optionlist'] = explode("\n", $array['options']);
+                        $inserthtml .= '<div class="control-group"><div class="control-label"><label id="jform[custom][' . $key1 . '.' . $array['name'] . ']-lbl" for="jform[custom][' . $key1 . '.' . $array['name'] . ']" class="hasTooltip" title="' . $array['description'] . '">' . $array['label'] . '</label></div><div class="controls"><select name="jform[custom][' . $key1 . '.' . $array['name'] . ']" class="inputbox">';
+                        foreach ($array['optionlist'] as $opt){
+                            $opt = str_replace(array("\r","\n"),"",$opt);
+                            $inserthtml .= '<option value="'.$opt.'" ' . ($value==$opt?'selected="selected"':'') . '>'.$opt.'</option>';
 
-                        //$inserthtml .= '<li><label class="hasTip" title="'.$array['description'].'">'.$array['label'].'</label><input type="text" class="field" name="jform[custom]['.$key1.'.'.$array['name'].'][email]" value="'.$value['email'].'" /><span class="hasTip linkhelper" title="The actual email address. Do not include "mailto:". This will be added automatically">email address</span></li>';
-                        //$inserthtml .= '<li><label>&nbsp;</label><input type="text" class="field" name="jform[custom]['.$key1.'.'.$array['name'].'][linktext]" value="'.$value['linktext'].'" /><span class="hasTip linkhelper" title="Optional link text. If left blank the URL will be used as link text.">Link text</span></li>';
+                        }
+                        $inserthtml .="</select></div></div>";
+                        break;
+                    case "multiselect":
+                        $array['optionlist'] = explode("\n", $array['options']);
+                        $inserthtml .= '<div class="control-group"><div class="control-label"><label id="jform[custom][' . $key1 . '.' . $array['name'] . ']-lbl" for="jform[custom][' . $key1 . '.' . $array['name'] . ']" class="hasTooltip" title="' . $array['description'] . '">' . $array['label'] . '</label></div><div class="controls"><select multiple name="jform[custom][' . $key1 . '.' . $array['name'] . '][]" class="inputbox">';
+                        foreach ($array['optionlist'] as $opt){
+                            $opt = str_replace(array("\r","\n"),"",$opt);
+                            //Check if each option exists in the saved record for this location and mark as selected if so.
+                            $selected = false;
+                            if (is_array($value)) {
+                                $in_array_at_pos = array_search($opt, $value);
+                                if ($in_array_at_pos !== false){
+                                    $selected = true;
+                                    unset($value[$in_array_at_pos]);
+                                }
+                            }
+                            $inserthtml .= '<option value="'.$opt.'" ' . ($selected?'selected="selected"':'') . '>'.$opt.'</option>';
+
+                        }
+                        $inserthtml .="</select></div></div>";
                         break;
                 }
                 $inserthtml .= "<hr />";

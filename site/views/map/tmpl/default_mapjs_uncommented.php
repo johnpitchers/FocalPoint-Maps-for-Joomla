@@ -14,6 +14,20 @@
  * If you need to customise this file, create an override in your template and edit that.
  * Copy this file to templates/your+template/html/com_focalpoint/location/default_mapsjs.php
  *
+ *
+ *
+ * To output a customfield use
+ * 		$this->renderField($marker->customfields->yourcustomfield, $hidelabel, $buffer)
+ *  	$hidelabel is TRUE or FALSE
+ *      $buffer is TRUE or FALSE. If TRUE the output is buffered and returned. If FALSE it is output directly.
+ *
+ * To avoid notices first check that the field exists;
+ *      if (!empty($marker->customfields->yourcustomfield)) { //Do something }
+ *
+ *
+ * Alternatively iterate through the object $marker->customfields AS $field and call
+ *  	$this->renderField($field,$hidelabel, $buffer);
+ *
  */
 
 // No direct access to this file
@@ -52,6 +66,9 @@ $script ='
 	var mapCenter = new google.maps.LatLng('.$this->item->latitude.','.$this->item->longitude.');
 	var markerCluster;
     var clusterMarkers = [];
+    if(typeof clusterStyles === \'undefined\') {
+        var clusterStyles = [];
+    }
     var marker= new Array();
 	function updateActiveCount(marker){
 		var locationTxt ="";
@@ -108,6 +125,10 @@ foreach ($this->item->markerdata as $marker) {
     if ($marker->params->get('infoshowaddress') && $marker->address !="") $marker->infodescription .= "<p>".JText::_($marker->address)."</p>";
     if ($marker->params->get('infoshowphone') && $marker->phone !="") $marker->infodescription .= "<p>".JText::_($marker->phone)."</p>";
     if ($marker->params->get('infoshowintro') && $marker->description !="") $marker->infodescription .= "<p>".JText::_($marker->description)."</p>";
+
+    // Example. If a custom fields was defined called "yourcustomfield" the following line would render
+    // that field in the infobox and location list
+    if (!empty($marker->customfields->yourcustomfield)) $marker->infodescription .= $this->renderField($marker->customfields->yourcustomfield, true, true);
 
     $boxtext ='<h4>'.$marker->title.'</h4><div class=\"infoboxcontent\">'.addslashes(str_replace("src=\"images","src=\"".JUri::base(true)."/images",(str_replace(array("\n", "\t", "\r"), '', $marker->infodescription))));
     if (isset($marker->link)) $boxtext.='<p class=\"infoboxlink\"><a title=\"'.$marker->title.'\" href=\"'.$marker->link.'\">Find out more</a></p>';
@@ -258,7 +279,9 @@ $script .= '
 					}
 				});
                 markerCluster.clearMarkers();
-                markerCluster = new MarkerClusterer(map, clusterMarkers);
+                markerCluster = new MarkerClusterer(map, clusterMarkers, {
+                    styles: clusterStyles
+                });
             }
 			setTimeout(function(){
 			var locationListHeight = jQuery("#fp_locationlist .fp_ll_holder").outerHeight();
@@ -412,7 +435,9 @@ $script .= '
                             });
 
                             markerCluster.clearMarkers();
-                            markerCluster = new MarkerClusterer(map, clusterMarkers);
+                            markerCluster = new MarkerClusterer(map, clusterMarkers, {
+                                styles: clusterStyles
+                            });
                         }
                         map.setCenter(results[0].geometry.location);
 						map.setZoom(mapsearchzoom);
@@ -431,7 +456,9 @@ $script .= '
         updateActiveCount(marker);
 
         if (markerclusters){
-            markerCluster = new MarkerClusterer(map, clusterMarkers);
+            markerCluster = new MarkerClusterer(map, clusterMarkers, {
+                styles: clusterStyles
+            });
         }
 
         if (showlisttab && (listtabfirst == 1)) {

@@ -112,11 +112,11 @@ $script .= '
                         if (status == google.maps.DirectionsStatus.OK) {
                             directionsDisplay.setDirections(response);
                         } else {
-                            alert("Google was unable to calculate driving directions to this location. Result: " + status);
+                            alert("'.JText::_('COM_FOCALPOINT_GEOCODE_FAIL').'" + status);
                         }
                     });
 				} else {
-                    alert("Geocode was not successful for the following reason: " + status);
+                    alert("'.JText::_('COM_FOCALPOINT_GEOCODE_FAIL').'" + status);
 				}
 			});
 		});';

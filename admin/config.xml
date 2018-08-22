@@ -187,7 +187,30 @@
             <option value="0">JNO</option>
             <option value="1">JYES</option>
         </field>
+
+
     </fieldset>
+<!--
+
+In development for 1.2
+
+    <fieldset name="infoboxtemplate" label="COM_FOCALPOINT_FORM_LBL_CONFIG_FIELDSET_INFOBOX_TEMPLATE" description="COM_FOCALPOINT_FORM_LBL_CONFIG_FIELDSET_INFOBOX_TEMPLATE_DESC">
+        <field name="infousetemplate" type="list" default="0"
+               label="Use template?"
+               description="Selecting this will render a template for the infobox based on the following textarea. The values above will have no effect.">
+            <option value="0">JNO</option>
+            <option value="1">JYES</option>
+        </field>
+        <field name="infotemplatecode"
+               type="textarea"
+               rows="15"
+               default=""
+               label="COM_FOCALPOINT_FORM_LBL_CONFIG_INFOBOX_TEMPLATE_CODE_LBL"
+               description="COM_FOCALPOINT_FORM_LBL_CONFIG_INFOBOX_TEMPLATE_CODE_DESC"
+            filter="raw">
+        </field>
+    </fieldset>
+-->
 
     <fieldset name="mapsearch" label="COM_FOCALPOINT_FORM_LBL_CONFIG_FIELDSET_MAP_SEARCH" description="">
         <field name="mapsearchenabled" type="list" default="0" label="COM_FOCALPOINT_FORM_LBL_CONFIG_MAP_SEARCH_LBL"

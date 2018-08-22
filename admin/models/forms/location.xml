@@ -170,11 +170,11 @@
                value_field="title"
                 />
 
-        <field name="menuitemlink"
+        <field name="menulink"
                type="menuitem"
                default=""
-               label="Menu item"
-               description="Select a menu item to link to"
+               label="COM_FOCALPOINT_FORM_LBL_LOCATION_MENUITEM"
+               description="COM_FOCALPOINT_FORM_DESC_LOCATION_MENUITEM"
                 />
 
     </fieldset>

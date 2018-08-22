@@ -169,9 +169,9 @@ class FocalpointModelLocation extends JModelForm
     
     function getMarker($id, $location_marker) {
         $marker = $location_marker;
+        // This marker has been defined at the location level. It rules!
         
         if (!$marker) {
-            // This marker has been defined at the location level. It rules!
             $db = JFactory::getDbo();
             $query = $db->getQuery(true);
             $query 

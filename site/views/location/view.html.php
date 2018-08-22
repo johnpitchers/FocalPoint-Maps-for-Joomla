@@ -77,11 +77,50 @@ class FocalpointViewLocation extends JViewLegacy {
         JFactory::getApplication()->triggerEvent('onContentPrepare', array('com_focalpoint.location', &$this->item, &$this->params, $limitstart = 0));
         $this->item->fulldescription = $this->item->text;
 
+        $this->item->description = $this->replace_custom_field_tags($this->item->description);
+        $this->item->fulldescription = $this->replace_custom_field_tags($this->item->fulldescription);
+
         parent::display($tpl);
     }
 
+    /**
+     * Replaces all custom field tags in the text.
+     *
+     */
+    public function replace_custom_field_tags($text){
+        $regex		= '/{(.*?)}/i';
+        preg_match_all($regex, $text, $matches, PREG_SET_ORDER);
+        if (!empty($matches)){
 
-	/**
+            // Cycle through each matching tag
+            foreach ($matches as $match){
+
+                // Output the relevant custom field if the tag matches the name.
+                foreach($this->item->customfields as $name=>$customfield) {
+                    if ($name == $match[1]) {
+
+                        // Set up the custom field object for the sub template
+                        $this->outputfield = new stdClass();
+                        $this->outputfield->hidelabel = true;
+                        $this->outputfield->data = $customfield->data;
+
+                        // Buffer the output and load the default sub template.
+                        ob_start();
+                        echo $this->loadTemplate('customfield_'.$customfield->datatype);
+                        $output = ob_get_contents();
+                        ob_end_clean();
+
+                        // Do the replace
+                        $text = str_replace($match[0],$output, $text);
+                    }
+                }
+            }
+
+        }
+        return $text;
+    }
+
+    /**
 	 * Prepares the document by setting up page titles and metadata.
 	 */
 	protected function _prepareDocument()
@@ -194,9 +233,15 @@ class FocalpointViewLocation extends JViewLegacy {
                 case "image":
                     echo $this->loadTemplate('customfield_image');
                     break;
+                case "selectlist":
+                    echo $this->loadTemplate('customfield_selectlist');
+                    break;
+                case "multiselect":
+                    echo $this->loadTemplate('customfield_multiselect');
+                    break;
             }
             unset($this->outputfield);
-			return true;
+			return;
         }
     }
 
