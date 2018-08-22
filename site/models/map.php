@@ -357,14 +357,19 @@ class FocalpointModelMap extends JModelForm
                     ->where('id = ' . $result->type);
                 $db->setQuery($query);
                 $fieldsettings = (json_decode($db->loadResult()));
-
                 $result->customfields = New stdClass();
                 foreach ($data as $field=>$value) {
                     $segments  = explode(".", $field);
-                    $result->customfields->{end($segments)} = New stdClass();
-                    $result->customfields->{end($segments)}->datatype = $segments[0];
-                    $result->customfields->{end($segments)}->label = $fieldsettings->{$segments[0].".".$segments[1]}->label;;
-                    $result->customfields->{end($segments)}->data = $value;
+
+                    // Before adding the custom field data to the results we first need to check field settings matches
+                    // the data. This is required in case the admin changes or deletes a custom field
+                    // from the location type but the data still exists in the location items record.
+                    if (!empty($fieldsettings->{$segments[0].".".$segments[1]})){
+                        $result->customfields->{end($segments)} = New stdClass();
+                        $result->customfields->{end($segments)}->datatype = $segments[0];
+                        $result->customfields->{end($segments)}->label = $fieldsettings->{$segments[0].".".$segments[1]}->label;
+                        $result->customfields->{end($segments)}->data = $value;
+                    }
                 }
             }
             unset($result->customfieldsdata);

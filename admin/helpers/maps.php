@@ -23,7 +23,7 @@ class mapsAPI
         $address = urlencode($geoaddress);
 
         //Assemble the request URL. This URL asks for the results in JSON format.
-        $geocodeURL = "http://maps.googleapis.com/maps/api/geocode/json?address=" . $address . "&sensor=false";
+        $geocodeURL = "//maps.googleapis.com/maps/api/geocode/json?address=" . $address . "&sensor=false";
 
         //Use CURL to get the coordinates from Google.
         $ch = curl_init($geocodeURL);

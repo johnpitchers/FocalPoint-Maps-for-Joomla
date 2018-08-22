@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="3.0.0" method="upgrade">
     <name>FocalPoint</name>
-    <creationDate>26 October 2014</creationDate>
+    <creationDate>6 January 2015</creationDate>
     <copyright>Copyright (C) 2013. All rights reserved.</copyright>
     <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
     <author>John Pitchers</author>
     <authorEmail>john@joomstore.com.au</authorEmail>
     <authorUrl>http://joomstore.com.au</authorUrl>
-    <version>1.2.2</version>
+    <version>1.2.3</version>
     <description>FocalPoint Maps. A maps based directory extension for Jooma 3.x. Developed by Viperfish Media.
     </description>
 

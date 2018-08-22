@@ -184,7 +184,7 @@ $document->addStyleSheet('components/com_focalpoint/assets/css/focalpoint.css');
         jQuery('#add-textbox').click(function () {
             var id = makeid();
             var inserthtml = '<fieldset><legend><i class="icon-menu"></i>&nbsp;Textbox</legend><a class="hasTooltip deletefield icon-trash" data-original-title="<strong>Delete this field?</strong><br />This can NOT be undone."></a>';
-            inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Name</label></div><div class="controls"><input type="text" class="field" name="jform[custom][textbox.' + id + '][name]" value="" /></div></div>';
+            inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label for="field' + id + '" class="required">Name</label></div><div class="controls"><input id="field' + id + '" type="text" class="field required" name="jform[custom][textbox.' + id + '][name]" value="" required="required" aria-required="true" /></div></div>';
             inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Tool tip</label></div><div class="controls"><input type="text" class="field" name="jform[custom][textbox.' + id + '][description]" value="" /></div></div>';
             inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Label</label></div><div class="controls"><input type="text" class="field" name="jform[custom][textbox.' + id + '][label]" value="" /></div></div>';
             inserthtml = inserthtml + '</fieldset>';
@@ -202,7 +202,7 @@ $document->addStyleSheet('components/com_focalpoint/assets/css/focalpoint.css');
         jQuery('#add-textarea').click(function () {
             var id = makeid();
             var inserthtml = '<fieldset><legend><i class="icon-menu"></i>&nbsp;Textarea</legend><a class="hasTooltip deletefield icon-trash" data-original-title="<strong>Delete this field?</strong><br />This can NOT be undone."></a>';
-            inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Name</label></div><div class="controls"><input type="text" class="field" name="jform[custom][textarea.' + id + '][name]" value="" /></div></div>';
+            inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label for="field' + id + '" class="required">Name</label></div><div class="controls"><input id="field' + id + '" type="text" class="field" name="jform[custom][textarea.' + id + '][name]" value="" required="required" aria-required="true" /></div></div>';
             inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Tool tip</label></div><div class="controls"><input type="text" class="field" name="jform[custom][textarea.' + id + '][description]" value="" /></div></div>';
             inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Label</label></div><div class="controls"><input type="text" class="field" name="jform[custom][textarea.' + id + '][label]" value="" /></div></div>';
             inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Load Editor</label></div><div class="controls"><select name="jform[custom][textarea.' + id + '][loadeditor]" class="inputbox" size="1" ></div></div>';
@@ -224,7 +224,7 @@ $document->addStyleSheet('components/com_focalpoint/assets/css/focalpoint.css');
         jQuery('#add-image').click(function () {
             var id = makeid();
             var inserthtml = '<fieldset><legend><i class="icon-menu"></i>&nbsp;Image</legend><a class="hasTooltip deletefield icon-trash" data-original-title="<strong>Delete this field?</strong><br />This can NOT be undone."></a>';
-            inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Name</label></div><div class="controls"><input type="text" class="field" name="jform[custom][image.' + id + '][name]" value="" /></div></div>';
+            inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label for="field' + id + '" class="required">Name</label></div><div class="controls"><input id="field' + id + '" type="text" class="field" name="jform[custom][image.' + id + '][name]" value="" required="required" aria-required="true" /></div></div>';
             inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Tool tip</label></div><div class="controls"><input type="text" class="field" name="jform[custom][image.' + id + '][description]" value="" /></div></div>';
             inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Label</label></div><div class="controls"><input type="text" class="field" name="jform[custom][image.' + id + '][label]" value="" /></div></div>';
             inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Default directory</label></div><div class="controls"><input type="text" class="field" name="jform[custom][image.' + id + '][directory]" value="" /></div></div>';
@@ -243,7 +243,7 @@ $document->addStyleSheet('components/com_focalpoint/assets/css/focalpoint.css');
         jQuery('#add-link').click(function () {
             var id = makeid();
             var inserthtml = '<fieldset><legend><i class="icon-menu"></i>&nbsp;Link</legend><a class="hasTooltip deletefield icon-trash" data-original-title="<strong>Delete this field?</strong><br />This can NOT be undone."></a>';
-            inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Name</label></div><div class="controls"><input type="text" class="field" name="jform[custom][link.' + id + '][name]" value="" /></div></div>';
+            inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label for="field' + id + '" class="required">Name</label></div><div class="controls"><input id="field' + id + '" type="text" class="field" name="jform[custom][link.' + id + '][name]" value="" required="required" aria-required="true" /></div></div>';
             inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Tool tip</label></div><div class="controls"><input type="text" class="field" name="jform[custom][link.' + id + '][description]" value="" /></div></div>';
             inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Label</label></div><div class="controls"><input type="text" class="field" name="jform[custom][link.' + id + '][label]" value="" /></div></div>';
             inserthtml = inserthtml + '</fieldset>';
@@ -261,7 +261,7 @@ $document->addStyleSheet('components/com_focalpoint/assets/css/focalpoint.css');
         jQuery('#add-email').click(function () {
             var id = makeid();
             var inserthtml = '<fieldset><legend><i class="icon-menu"></i>&nbsp;Email</legend><a class="hasTooltip deletefield icon-trash" data-original-title="<strong>Delete this field?</strong><br />This can NOT be undone."></a>';
-            inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Name</label></div><div class="controls"><input type="text" class="field" name="jform[custom][email.' + id + '][name]" value="" /></div></div>';
+            inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label for="field' + id + '" class="required">Name</label></div><div class="controls"><input id="field' + id + '" type="text" class="field" name="jform[custom][email.' + id + '][name]" value="" required="required" aria-required="true" /></div></div>';
             inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Tool tip</label></div><div class="controls"><input type="text" class="field" name="jform[custom][email.' + id + '][description]" value="" /></div></div>';
             inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Label</label></div><div class="controls"><input type="text" class="field" name="jform[custom][email.' + id + '][label]" value="" /></div></div>';
             inserthtml = inserthtml + '</fieldset>';
@@ -279,7 +279,7 @@ $document->addStyleSheet('components/com_focalpoint/assets/css/focalpoint.css');
         jQuery('#add-selectlist').click(function () {
             var id = makeid();
             var inserthtml = '<fieldset><legend><i class="icon-menu"></i>&nbsp;Select List</legend><a class="hasTooltip deletefield icon-trash" data-original-title="<strong>Delete this field?</strong><br />This can NOT be undone."></a>';
-            inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Name</label></div><div class="controls"><input type="text" class="field" name="jform[custom][selectlist.' + id + '][name]" value="" /></div></div>';
+            inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label for="field' + id + '" class="required">Name</label></div><div class="controls"><input id="field' + id + '" type="text" class="field" name="jform[custom][selectlist.' + id + '][name]" value="" required="required" aria-required="true" /></div></div>';
             inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Tool tip</label></div><div class="controls"><input type="text" class="field" name="jform[custom][selectlist.' + id + '][description]" value="" /></div></div>';
             inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Label</label></div><div class="controls"><input type="text" class="field" name="jform[custom][selectlist.' + id + '][label]" value="" /></div></div>';
             inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Options (one to a line)</label></div><div class="controls"><textarea style="width:300px;" rows="20" class="field" name="jform[custom][selectlist.' + id + '][options]" value="" /></div></div>';
@@ -298,7 +298,7 @@ $document->addStyleSheet('components/com_focalpoint/assets/css/focalpoint.css');
         jQuery('#add-multiselect').click(function () {
             var id = makeid();
             var inserthtml = '<fieldset><legend><i class="icon-menu"></i>&nbsp;Multi Select</legend><a class="hasTooltip deletefield icon-trash" data-original-title="<strong>Delete this field?</strong><br />This can NOT be undone."></a>';
-            inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Name</label></div><div class="controls"><input type="text" class="field" name="jform[custom][multiselect.' + id + '][name]" value="" /></div></div>';
+            inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label for="field' + id + '" class="required">Name</label></div><div class="controls"><input id="field' + id + '" type="text" class="field" name="jform[custom][multiselect.' + id + '][name]" value="" required="required" aria-required="true" /></div></div>';
             inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Tool tip</label></div><div class="controls"><input type="text" class="field" name="jform[custom][multiselect.' + id + '][description]" value="" /></div></div>';
             inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Label</label></div><div class="controls"><input type="text" class="field" name="jform[custom][multiselect.' + id + '][label]" value="" /></div></div>';
             inserthtml = inserthtml + '<div class="control-group"><div class="control-label"><label>Options (one to a line)</label></div><div class="controls"><textarea style="width:300px;" rows="20" class="field" name="jform[custom][multiselect.' + id + '][options]" value="" /></div></div>';

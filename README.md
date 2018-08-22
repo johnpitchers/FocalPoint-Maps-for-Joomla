@@ -19,6 +19,13 @@ The license under which the FocalPoint extension for Joomla! is released is the 
 Under the terms of this license you are free to use the software in any way you wish. You are free to modify the software in any way you wish and create derivative works.
 
 
+#### Build 1.2.3
+
+Allows the Google Maps API to load over https.
+Fixes an issue where custom fields can be defined without a name.
+Fixes issues where notices and warnings were being generated when custom field details were changed and conflicted with previously saved location data.
+
+
 #### Build 1.2.2
 
 Change to the administrator's location form so the description field reads filters as per the Global Configuration settings.

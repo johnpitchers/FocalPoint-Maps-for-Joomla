@@ -4,7 +4,14 @@ Focalpoint
 Advanced mapping extension for Joomla CMS
 -----------------------------------------
 
-Current Build 1.2.2
+Current Build 1.2.3
+
+Allows the Google Maps API to load over https.
+Fixes an issue where custom fields can be defined without a name.
+Fixes issues where notices and warnings were being generated when custom field details were changed and conflicted with previously saved location data.
+
+
+Build 1.2.2
 
 Change to the administrator's location form so the description field reads filters as per the Global Configuration settings.
 
@@ -21,7 +28,7 @@ Added the option to display the map or list view in the first tab. It's in the g
 Fix language issues. All english text hard coded in the template files has been replaced with language declarations and can be overridden with language files in the normal way.
 Custom field options now include Select Boxes and Multi Select Boxes.
 Better, more refined icon pins and cluster icons.
-The infobox "Find out more" link can now link to an menu item.
+The infobox "Find out more" link can now link to a menu item.
 Removed the ability to change the name of a custom field once it has been saved. This was causing issues with data being lost when the custom field name was altered.
 Fixed missing div in sidebar sub-template.
 Custom fields are now accessible in the map view. Previously they were only available in the locations view. A note has been added to the default template files.
