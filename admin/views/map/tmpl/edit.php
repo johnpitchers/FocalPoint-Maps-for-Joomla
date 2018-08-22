@@ -58,7 +58,6 @@ $document->addScript('http://maps.google.com/maps/api/js?sensor=false');
                         class="icon-out-2 small"></span> Open GeoCoder Tool</a>
                 <?php echo $this->getForm()->getControlGroup('latitude'); ?>
                 <?php echo $this->getForm()->getControlGroup('longitude'); ?>
-                <?php echo $this->getForm()->getControlGroup('kmlfile'); ?>
                 <div class="control-group">
                     <div class="controls">
                         <?php echo $this->form->getInput('created_by'); ?>

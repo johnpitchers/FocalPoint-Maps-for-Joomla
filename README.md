@@ -19,6 +19,11 @@ The license under which the FocalPoint extension for Joomla! is released is the 
 Under the terms of this license you are free to use the software in any way you wish. You are free to modify the software in any way you wish and create derivative works.
 
 
+#### Build 1.2.4
+
+Change to focalpoint.xml enables a field for KML file storage for a new plugin in the works.
+
+
 #### Build 1.2.3
 
 Allows the Google Maps API to load over https.

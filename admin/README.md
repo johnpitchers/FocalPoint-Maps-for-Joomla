@@ -4,6 +4,11 @@ Focalpoint
 Advanced mapping extension for Joomla CMS
 -----------------------------------------
 
+Current Build 1.2.4
+
+Change to focalpoint.xml enables a field for KML file storage for a new plugin in the works.
+
+
 Current Build 1.2.3
 
 Allows the Google Maps API to load over https.

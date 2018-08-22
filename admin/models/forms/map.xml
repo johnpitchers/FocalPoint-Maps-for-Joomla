@@ -64,12 +64,13 @@
                filter="raw"
                maxlength="30"/>
 
-        <!-- <field name="kmlfile" type="media"
-            label="COM_FOCALPOINT_FORM_LBL_MAP_KMLFILE"
-            description="COM_FOCALPOINT_FORM_DESC_MAP_KMLFILE"
-            filter="raw"
-            directory="images/kml/" />
-        -->
+        <field name="kmlfile"
+               type="text"
+               label="KML file"
+               description=""
+               hide_default="true"
+                />
+
         <field name="created_by" type="createdby" default=""
                label="COM_FOCALPOINT_FORM_LBL_MAP_CREATED_BY"
                description="COM_FOCALPOINT_FORM_DESC_MAP_CREATED_BY"/>
