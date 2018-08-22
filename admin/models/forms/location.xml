@@ -41,7 +41,7 @@
                label="COM_FOCALPOINT_FORM_LBL_LOCATION_DESCRIPTION"
                description="COM_FOCALPOINT_FORM_DESC_LOCATION_DESCRIPTION"
                height="250"
-               filter="safehtml"
+               filter="JComponentHelper::filterText"
                buttons="true"/>
 
         <field name="address" type="text"

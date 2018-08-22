@@ -4,7 +4,17 @@ Focalpoint
 Advanced mapping extension for Joomla CMS
 -----------------------------------------
 
-Current Build: 1.2
+Current Build 1.2.2
+
+Change to the administrator's location form so the description field reads filters as per the Global Configuration settings.
+
+
+Build 1.2.1
+
+Minor fix to default map template 
+
+
+Build: 1.2
 
 Started as a bug fix release but grew to include new features.
 Added the option to display the map or list view in the first tab. It's in the global configuration and can be overridden in the map settings.

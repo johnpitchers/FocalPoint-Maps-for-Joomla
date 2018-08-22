@@ -106,7 +106,7 @@ class FocalpointViewMap extends JViewLegacy
         foreach($this->item->markerdata as &$markerdata) {
             $regex		= '/{(.*?)}/i';
             preg_match_all($regex, $markerdata->description, $matches, PREG_SET_ORDER);
-            if (!empty($matches)){
+            if (!empty($matches) && !empty($markerdata->customfields)){
 
                 // Cycle through each matching tag
                 foreach ($matches as $match){

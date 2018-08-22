@@ -19,6 +19,11 @@ The license under which the FocalPoint extension for Joomla! is released is the 
 Under the terms of this license you are free to use the software in any way you wish. You are free to modify the software in any way you wish and create derivative works.
 
 
+#### Build 1.2.2
+
+Change to the administrator's location form so the description field reads filters as per the Global Configuration settings.
+
+
 #### Build 1.2.1
 
 Minor fix to default map template
