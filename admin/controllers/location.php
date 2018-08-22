@@ -118,8 +118,6 @@ class FocalpointControllerLocation extends JControllerForm
             return false;
         }
 
-        //echo"<pre>";print_r($data);die("</pre>");
-
         //Process custom fields.
         if (!empty($data['custom'])) {
 

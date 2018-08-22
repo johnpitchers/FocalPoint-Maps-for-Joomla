@@ -102,40 +102,6 @@ class FocalpointViewMap extends JViewLegacy
         $params->merge($this->item->params);
         $this->item->params = $params;
 
-        // Scan for custom field tags in the description and replace accordingly.
-        foreach($this->item->markerdata as &$markerdata) {
-            $regex		= '/{(.*?)}/i';
-            preg_match_all($regex, $markerdata->description, $matches, PREG_SET_ORDER);
-            if (!empty($matches) && !empty($markerdata->customfields)){
-
-                // Cycle through each matching tag
-                foreach ($matches as $match){
-
-                    // Output the relevant custom field if the tag matches the name.
-                    foreach($markerdata->customfields as $name=>$customfield) {
-                        if ($name == $match[1]) {
-
-                            // Set up the custom field object for the sub template
-                            $this->outputfield = new stdClass();
-                            $this->outputfield->hidelabel = true;
-                            $this->outputfield->data = $customfield->data;
-
-                            // Buffer the output and load the default sub template.
-                            ob_start();
-                            echo $this->loadTemplate('customfield_'.$customfield->datatype);
-                            $output = ob_get_contents();
-                            ob_end_clean();
-
-                            // Do the replace
-                            $markerdata->description = str_replace($match[0],$output, $markerdata->description);
-                        }
-
-                    }
-                }
-
-            }
-        }
-
         // OK. Lets display this thang!
         parent::display($tpl);
     }
@@ -220,74 +186,6 @@ class FocalpointViewMap extends JViewLegacy
         $articleauthor = ($this->item->metadata->get('author'));
         if ($articleauthor) {
             $this->document->setMetadata('author', $this->item->metadata->get('author'));
-        }
-    }
-
-
-    /**
-     * Renders a custom field using the relevant template.
-     *
-     * $field  single customfield object.
-     *
-     */
-    public function renderField($field, $hidelabel = false, $buffer = false) {
-        $datatype   = $field->datatype;
-
-        if ($buffer) {
-            ob_start();
-        }
-        if ($field->data) {
-            // We need to assign $field to a property of the view class for the data to be available in
-            // the relevant subtemplate.
-            $this->outputfield = $field;
-            $this->outputfield->hidelabel = $hidelabel;
-
-            switch ($datatype){
-                case "textbox":
-                    echo $this->loadTemplate('customfield_textbox');
-                    break;
-                case "link":
-                    echo $this->loadTemplate('customfield_link');
-                    break;
-                case "email":
-                    echo $this->loadTemplate('customfield_email');
-                    break;
-                case "textarea":
-                    echo $this->loadTemplate('customfield_textarea');
-                    break;
-                case "image":
-                    echo $this->loadTemplate('customfield_image');
-                    break;
-                case "selectlist":
-                    echo $this->loadTemplate('customfield_selectlist');
-                    break;
-                case "multiselect":
-                    echo $this->loadTemplate('customfield_multiselect');
-                    break;
-            }
-            unset($this->outputfield);
-        }
-
-        if ($buffer) {
-            $output = ob_get_contents();
-            ob_end_clean();
-            return $output;
-        } else {
-            return true;
-        }
-
-    }
-
-    /**
-     * Renders a single field using the relevant template.
-     * $my_field is the name of the custom field.
-     */
-    public function renderCustomField($my_field, $hidelabel = false, $buffer = false)
-    {
-        if (isset($this->item->customfields->{$my_field})){
-            return $this->renderField($this->item->customfields->{$my_field}, $hidelabel, $buffer);
-        } else {
-            return false;
         }
     }
 

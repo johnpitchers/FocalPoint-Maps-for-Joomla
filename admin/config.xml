@@ -35,7 +35,7 @@
             <option value="false">JDISABLED</option>
         </field>
 
-        <field name="zoom" type="list" default="null" label="COM_FOCALPOINT_FORM_LBL_CONFIG_ZOOM_LVL_LBL"
+        <field name="zoom" type="list" default="12" label="COM_FOCALPOINT_FORM_LBL_CONFIG_ZOOM_LVL_LBL"
                description="COM_FOCALPOINT_FORM_LBL_CONFIG_ZOOM_LVL_DESC">
             <option value="1">1</option>
             <option value="2">2</option>
@@ -55,31 +55,6 @@
             <option value="16">16</option>
             <option value="17">17</option>
             <option value="18">18</option>
-        </field>
-
-        <field name="maxzoom" type="list" default="null" label="COM_FOCALPOINT_FORM_LBL_CONFIG_MAXZOOM_LVL_LBL"
-               description="COM_FOCALPOINT_FORM_LBL_CONFIG_MAXZOOM_LVL_DESC">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-            <option value="13">13</option>
-            <option value="14">14</option>
-            <option value="15">15</option>
-            <option value="16">16</option>
-            <option value="17">17</option>
-            <option value="18">18</option>
-            <option value="19">19</option>
-            <option value="20">20</option>
-            <option value="null">COM_FOCALPOINT_FORM_LBL_CONFIG_AUTO</option>
         </field>
 
         <field name="zoomin" type="list" default="14" label="COM_FOCALPOINT_FORM_LBL_CONFIG_LOCATION_ZOOM_LVL_LBL"
@@ -183,12 +158,6 @@
             <option value="1">JYES</option>
         </field>
 
-        <field name="showlistfirst" type="list" default="0" label="COM_FOCALPOINT_FORM_LBL_CONFIG_LOCATION_LIST_TAB_FIRST_LBL"
-               description="COM_FOCALPOINT_FORM_LBL_CONFIG_LOCATION_LIST_TAB_FIRST_DESC">
-            <option value="0">JNO</option>
-            <option value="1">JYES</option>
-        </field>
-
     </fieldset>
 
     <!-- ######################################################################################## -->
@@ -212,30 +181,7 @@
             <option value="0">JNO</option>
             <option value="1">JYES</option>
         </field>
-
-
     </fieldset>
-<!--
-
-In development for 1.2
-
-    <fieldset name="infoboxtemplate" label="COM_FOCALPOINT_FORM_LBL_CONFIG_FIELDSET_INFOBOX_TEMPLATE" description="COM_FOCALPOINT_FORM_LBL_CONFIG_FIELDSET_INFOBOX_TEMPLATE_DESC">
-        <field name="infousetemplate" type="list" default="0"
-               label="Use template?"
-               description="Selecting this will render a template for the infobox based on the following textarea. The values above will have no effect.">
-            <option value="0">JNO</option>
-            <option value="1">JYES</option>
-        </field>
-        <field name="infotemplatecode"
-               type="textarea"
-               rows="15"
-               default=""
-               label="COM_FOCALPOINT_FORM_LBL_CONFIG_INFOBOX_TEMPLATE_CODE_LBL"
-               description="COM_FOCALPOINT_FORM_LBL_CONFIG_INFOBOX_TEMPLATE_CODE_DESC"
-            filter="raw">
-        </field>
-    </fieldset>
--->
 
     <fieldset name="mapsearch" label="COM_FOCALPOINT_FORM_LBL_CONFIG_FIELDSET_MAP_SEARCH" description="">
         <field name="mapsearchenabled" type="list" default="0" label="COM_FOCALPOINT_FORM_LBL_CONFIG_MAP_SEARCH_LBL"
@@ -246,7 +192,7 @@ In development for 1.2
         <field
                 name="mapsearchprompt"
                 type="text"
-                default="Suburb or Postal code"
+                default="Suburn or Postal Code"
                 label="COM_FOCALPOINT_FORM_LBL_CONFIG_MAP_SEARCH_PROMPT_LBL"
                 description="COM_FOCALPOINT_FORM_LBL_CONFIG_MAP_SEARCH_PROMPT_DESC"
                 size="40"

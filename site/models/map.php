@@ -223,8 +223,7 @@ class FocalpointModelMap extends JModelForm
 			SELECT c.title AS legend, c.subtitle AS legendsubtitle, c.alias AS legendalias,
 			b.title AS locationtype, b.id as locationtype_id, b.alias AS locationtypealias, e.marker AS marker_type,
 			a.id, a.state, a.title, a.alias, a.map_id, a.type, a.address, a.phone, a.description,
-			a.customfieldsdata,
-			a.latitude, a.longitude, a.marker AS marker_location, a.linktype, a.altlink, a.maplinkid, a.menulink, a.params,
+			a.latitude, a.longitude, a.marker AS marker_location, a.linktype, a.altlink, a.maplinkid, a.params,
 			CONCAT('index.php?option=com_focalpoint&view=location&id=',a.id) AS link
 			FROM #__focalpoint_locations AS a
 			INNER JOIN #__focalpoint_locationtypes AS b
@@ -235,7 +234,20 @@ class FocalpointModelMap extends JModelForm
 			AND d.locationtype_id = b.id
 			AND e.id = a.type
 			AND b.legend = c.id
-			WHERE a.map_id = ". $id ." AND a.state = 1 AND b.state = 1 AND c.state = 1
+			WHERE a.map_id = ". $id ." AND a.state = 1
+			ORDER BY c.ordering, b.ordering
+			";
+		}else{
+			$query ="
+			SELECT c.title AS legend, c.subtitle AS legendsubtitle, c.alias AS legendalias,
+			b.title AS locationtype, b.id as locationtype_id, b.alias AS locationtypealias, b.marker AS marker_type,
+			a.id, a.state, a.title, a.alias, a.map_id, a.type, a.address, a.phone, a.description,
+			a.latitude, a.longitude, a.marker AS marker_location, a.linktype, a.altlink, a.maplinkid, a.params,
+			CONCAT('index.php?option=com_focalpoint&view=location&id=',a.id) AS link
+			FROM #__focalpoint_locations AS a
+			LEFT JOIN #__focalpoint_locationtypes AS b ON a.type = b.id
+			LEFT JOIN #__focalpoint_legends AS c ON b.legend = c.id
+			WHERE a.map_id = ".$id." AND a.state = 1
 			ORDER BY c.ordering, b.ordering
 			";
 		}
@@ -304,18 +316,14 @@ class FocalpointModelMap extends JModelForm
 						$query->where('link = "index.php?option=com_focalpoint&view=map" AND params LIKE "%{\"item_id\":\"'.$result->maplinkid.'\",%"');
 						$db->setQuery($query);
 						$itemid = $db->loadResult();
-                        $result->link = 'index.php?option=com_focalpoint&view=map&id='.$result->maplinkid."&Itemid=";
+                        $result->link = 'index.php?option=com_focalpoint&view=map&id='.$result->maplinkid."&Itemid=".$itemid;
                     }
                     break;
                 case "3":
                     unset($result->link);
                     break;
-                case "4":
-                    if ($result->menulink) {
-                        $result->link = JRoute::_(JFactory::getApplication()->getMenu()->getItem($result->menulink)->link."&Itemid=".$result->menulink,true);
-                    }
             }
-
+            
             unset($result->altlink);
             unset($result->maplink);
 
@@ -328,37 +336,6 @@ class FocalpointModelMap extends JModelForm
 					$result->link = JRoute::_($result->link);
 				}
 			}
-
-            // Decode the custom field data
-            if (!empty($result->customfieldsdata)){
-                $data = json_decode($result->customfieldsdata);
-
-                // Grab the location type record so we can match up the label. We don't save the labels with the data.
-                // This is so we can change individaul labels at any time without having to update every record.
-                $db = JFactory::getDbo();
-                $query = $db->getQuery(true);
-                $query
-                    ->select('customfields')
-                    ->from('#__focalpoint_locationtypes')
-                    ->where('id = ' . $result->type);
-                $db->setQuery($query);
-                $fieldsettings = (json_decode($db->loadResult()));
-                $result->customfields = New stdClass();
-                foreach ($data as $field=>$value) {
-                    $segments  = explode(".", $field);
-
-                    // Before adding the custom field data to the results we first need to check field settings matches
-                    // the data. This is required in case the admin changes or deletes a custom field
-                    // from the location type but the data still exists in the location items record.
-                    if (!empty($fieldsettings->{$segments[0].".".$segments[1]})){
-                        $result->customfields->{end($segments)} = New stdClass();
-                        $result->customfields->{end($segments)}->datatype = $segments[0];
-                        $result->customfields->{end($segments)}->label = $fieldsettings->{$segments[0].".".$segments[1]}->label;
-                        $result->customfields->{end($segments)}->data = $value;
-                    }
-                }
-            }
-            unset($result->customfieldsdata);
         }
         //Send it back to the template.
         return $results;    

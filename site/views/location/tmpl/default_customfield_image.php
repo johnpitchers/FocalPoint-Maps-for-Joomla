@@ -11,13 +11,9 @@
 defined('_JEXEC') or die('Restricted access');
 ?>
 
-
+<p class="fp_customfield fp_image">
 	<?php if (!$this->outputfield->hidelabel) { ?>
-    <p class="fp_customfield fp_image">
 	<span class="fp_label"><?php echo $this->outputfield->label.": "; ?></span>
 	<?php } ?>
 	<?php echo '<img src="'.JUri::base(true)."/".$this->outputfield->data.'" title="'.$this->outputfield->label.'" alt="'.$this->outputfield->label.'" />'; ?>
-
-    <?php if (!$this->outputfield->hidelabel) { ?>
-    </p>
-    <?php } ?>
+</p>

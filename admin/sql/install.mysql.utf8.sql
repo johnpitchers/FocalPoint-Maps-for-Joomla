@@ -26,7 +26,6 @@ CREATE TABLE IF NOT EXISTS `#__focalpoint_locations` (
   `linktype` tinyint(1) NOT NULL DEFAULT '0',
   `altlink` varchar(300) NOT NULL,
   `maplinkid` int(11) NOT NULL,
-  `menulink` varchar(300) NOT NULL,
   `address` varchar(300) NOT NULL,
   `geoaddress` varchar(300) NOT NULL,
   `phone` varchar(30) NOT NULL,

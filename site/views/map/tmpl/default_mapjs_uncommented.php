@@ -14,20 +14,6 @@
  * If you need to customise this file, create an override in your template and edit that.
  * Copy this file to templates/your+template/html/com_focalpoint/location/default_mapsjs.php
  *
- *
- *
- * To output a customfield use
- * 		$this->renderField($marker->customfields->yourcustomfield, $hidelabel, $buffer)
- *  	$hidelabel is TRUE or FALSE
- *      $buffer is TRUE or FALSE. If TRUE the output is buffered and returned. If FALSE it is output directly.
- *
- * To avoid notices first check that the field exists;
- *      if (!empty($marker->customfields->yourcustomfield)) { //Do something }
- *
- *
- * Alternatively iterate through the object $marker->customfields AS $field and call
- *  	$this->renderField($field,$hidelabel, $buffer);
- *
  */
 
 // No direct access to this file
@@ -35,7 +21,7 @@ defined('_JEXEC') or die('Restricted access');
 
 // Load the Google API and initialise the map.
 $document = JFactory::getDocument();
-$document->addScript('//maps.googleapis.com/maps/api/js?key='.$this->item->params->get('apikey'));
+$document->addScript('http://maps.googleapis.com/maps/api/js?key='.$this->item->params->get('apikey').'&sensor=false');
 $document->addScript(JURI::base().'components/com_focalpoint/assets/js/infobox.js');
 $params             = JComponentHelper::getParams('com_focalpoint');
 $showlisttab        = $this->item->params->get('locationlist');
@@ -46,7 +32,6 @@ $mapsearchprompt    = $this->item->params->get('mapsearchprompt');
 $searchassist       = ", ".$this->item->params->get('searchassist');
 $fitbounds          = $this->item->params->get('fitbounds');
 $markerclusters     = $this->item->params->get('markerclusters');
-$listtabfirst       = $this->item->params->get('showlistfirst');
 if($markerclusters) {
     $document->addScript(JURI::base().'plugins/focalpoint/markerclusters/assets/markerclusterer.js');
 }
@@ -61,14 +46,9 @@ $script ='
 	var searchassist = "'.$searchassist.'";
 	var fitbounds = '.($fitbounds?"1":"0").';
 	var markerclusters = '.($markerclusters?"1":"0").';
-	var listtabfirst = '.($listtabfirst?"1":"0").';
 	var map;
-	var mapCenter = new google.maps.LatLng('.$this->item->latitude.','.$this->item->longitude.');
 	var markerCluster;
     var clusterMarkers = [];
-    if(typeof clusterStyles === \'undefined\') {
-        var clusterStyles = [];
-    }
     var marker= new Array();
 	function updateActiveCount(marker){
 		var locationTxt ="";
@@ -87,7 +67,7 @@ $script ='
 		}
 		var locationPlural = "'.JText::_("COM_FOCALPOINT_LOCATIONS").'";
 		if (activeCount == 1) { locationPlural = "'.JText::_("COM_FOCALPOINT_LOCATION").'"; }
-		jQuery("#activecount").html("'.JText::_("COM_FOCALPOINT_SHOWING").' " + activeCount +" "+locationPlural+locationTxt+".");
+		jQuery("#activecount").html("Showing " + activeCount +" "+locationPlural+locationTxt+".");
 		if (activeCount == 0){
 			if (jQuery(".nolocations").length == 0){
 				jQuery("#fp_locationlist .fp_ll_holder").append("<div class=\"nolocations\">'.JText::_("COM_FOCALPOINT_NO_LOCATION_TYPES_SELECTED").'</div>");
@@ -100,7 +80,6 @@ $script ='
         var mapProp = {
             center:new google.maps.LatLng('.$this->item->latitude.','.$this->item->longitude.'),
             zoom:'.$this->item->params->get('zoom').',
-            maxZoom:'.$this->item->params->get('maxzoom','null').',
             mapTypeControl: '.$this->item->params->get('mapTypeControl').',
             zoomControl: '.$this->item->params->get('zoomControl').',
             scrollwheel: '.$this->item->params->get('scrollwheel').',
@@ -127,12 +106,8 @@ foreach ($this->item->markerdata as $marker) {
     if ($marker->params->get('infoshowphone') && $marker->phone !="") $marker->infodescription .= "<p>".JText::_($marker->phone)."</p>";
     if ($marker->params->get('infoshowintro') && $marker->description !="") $marker->infodescription .= "<p>".JText::_($marker->description)."</p>";
 
-    // Example. If a custom fields was defined called "yourcustomfield" the following line would render
-    // that field in the infobox and location list
-    if (!empty($marker->customfields->yourcustomfield->data)) $marker->infodescription .= $this->renderField($marker->customfields->yourcustomfield, true, true);
-
-    $boxtext ='<h4>'.addslashes($marker->title).'</h4><div class=\"infoboxcontent\">'.addslashes(str_replace("src=\"images","src=\"".JUri::base(true)."/images",(str_replace(array("\n", "\t", "\r"), '', $marker->infodescription))));
-    if (isset($marker->link)) $boxtext.='<p class=\"infoboxlink\"><a title=\"'.addslashes($marker->title).'\" href=\"'.$marker->link.'\">'.JText::_('COM_FOCALPOINT_FIND_OUT_MORE').'</a></p>';
+    $boxtext ='<h4>'.$marker->title.'</h4><div class=\"infoboxcontent\">'.addslashes(str_replace("src=\"images","src=\"".JUri::base(true)."/images",(str_replace(array("\n", "\t", "\r"), '', $marker->infodescription))));
+    if (isset($marker->link)) $boxtext.='<p class=\"infoboxlink\"><a title=\"'.$marker->title.'\" href=\"'.$marker->link.'\">Find out more</a></p>';
 
     $boxtext.='<div class=\"infopointer\"></div></div>';
     $script .= '
@@ -280,9 +255,7 @@ $script .= '
 					}
 				});
                 markerCluster.clearMarkers();
-                markerCluster = new MarkerClusterer(map, clusterMarkers, {
-                    styles: clusterStyles
-                });
+                markerCluster = new MarkerClusterer(map, clusterMarkers);
             }
 			setTimeout(function(){
 			var locationListHeight = jQuery("#fp_locationlist .fp_ll_holder").outerHeight();
@@ -324,7 +297,7 @@ $script .= '
 			jQuery("#fp_toggle").each(function(){
 				if ("on" == "'.$this->item->params->get('showmarkers').'") {
 					jQuery(this).data("togglestate","off");
-					jQuery(this).html("'. JText::_('COM_FOCALPOINT_BUTTTON_HIDE_ALL').'");
+					jQuery(this).html("Hide all");
 					jQuery(".markertoggles").each(function(e){
 						if (jQuery(this).hasClass("active")) {
 							jQuery(this).trigger("click");
@@ -333,7 +306,7 @@ $script .= '
 					});
 				} else {
 					jQuery(this).data("togglestate","on");
-					jQuery(this).html("'. JText::_('COM_FOCALPOINT_BUTTTON_SHOW_ALL').'");
+					jQuery(this).html("Show all");
 					jQuery(".markertoggles").each(function(e){
 						if (jQuery(this).hasClass("active")) {
 							jQuery(this).trigger("click");
@@ -349,7 +322,7 @@ $script .= '
 			allowScrollTo = false;
 			if (jQuery(this).data("togglestate") == "on") {
 				jQuery(this).data("togglestate","off");
-				jQuery(this).html("'. JText::_('COM_FOCALPOINT_BUTTTON_HIDE_ALL').'");
+				jQuery(this).html("Hide all");
 				jQuery(".markertoggles").each(function(e){
 					if (!jQuery(this).hasClass("active")) {
 						jQuery(this).trigger("click");
@@ -357,7 +330,7 @@ $script .= '
 				});
 			} else {
 				jQuery(this).data("togglestate","on");
-				jQuery(this).html("'. JText::_('COM_FOCALPOINT_BUTTTON_SHOW_ALL').'");
+				jQuery(this).html("Show all");
 				jQuery(".markertoggles").each(function(e){
 					if (jQuery(this).hasClass("active")) {
 						jQuery(this).trigger("click");
@@ -399,7 +372,7 @@ $script .= '
 						});
 						jQuery("#fp_toggle").each(function(){
 							jQuery(this).data("togglestate","off");
-							jQuery(this).html("'. JText::_('COM_FOCALPOINT_BUTTTON_HIDE_ALL').'");
+							jQuery(this).html("Hide all");
 							jQuery(".markertoggles").each(function(e){
 								if (jQuery(this).hasClass("active")) {
 									jQuery(this).trigger("click");
@@ -436,9 +409,7 @@ $script .= '
                             });
 
                             markerCluster.clearMarkers();
-                            markerCluster = new MarkerClusterer(map, clusterMarkers, {
-                                styles: clusterStyles
-                            });
+                            markerCluster = new MarkerClusterer(map, clusterMarkers);
                         }
                         map.setCenter(results[0].geometry.location);
 						map.setZoom(mapsearchzoom);
@@ -457,21 +428,7 @@ $script .= '
         updateActiveCount(marker);
 
         if (markerclusters){
-            markerCluster = new MarkerClusterer(map, clusterMarkers, {
-                styles: clusterStyles
-            });
-        }
-
-        if (showlisttab && (listtabfirst == 1)) {
-            setTimeout(function(){
-                jQuery("#locationlisttab").trigger("click");
-            },100);
-        }
-
-        if ("off" == "'.$this->item->params->get('showmarkers').'") {
-            setTimeout(function(){
-                jQuery("#fp_toggle").trigger("click");
-            },100);
+            markerCluster = new MarkerClusterer(map, clusterMarkers);
         }
     }
     google.maps.event.addDomListener(window, \'load\', initialize);

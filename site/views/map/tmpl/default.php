@@ -5,16 +5,12 @@
  * @copyright   Copyright (C) 2013. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  * @author      John Pitchers <john@viperfish.com.au> - http://viperfish.com.au
- *
  */
 
 // no direct access
 defined('_JEXEC') or die;
 $params = JComponentHelper::getParams('com_focalpoint');
-
-// Location List tab parameters
-$showlisttab = $this->item->params->get('locationlist');
-$listtabfirst = $this->item->params->get('showlistfirst');
+$showlisttab = $params->get('locationlist');
 
 //Load admin language file
 $lang = JFactory::getLanguage();
@@ -87,12 +83,9 @@ $pageclass_sfx = $this->item->params->get('pageclass_sfx');
             <?php if (count($this->item->tabs) || $showlisttab) { ?>
             <div id="tab-container" class="tab-container">
                 <ul class='nav nav-tabs'>
-                    <?php if ($showlisttab && $listtabfirst) { ?>
-                        <li class=''><a id="locationlisttab" href="#"><?php echo JText::_('COM_FOCALPOINT_LIST')?></a></li>
-                    <?php } ?>
-                    <li class='active'><a href="#tabs1-map" data-toggle="tab"><?php echo JText::_('COM_FOCALPOINT_MAP')?></a></li>
-                    <?php if ($showlisttab && !$listtabfirst) { ?>
-                        <li class=''><a id="locationlisttab" href="#"><?php echo JText::_('COM_FOCALPOINT_LIST')?></a></li>
+                    <li class='active'><a href="#tabs1-map" data-toggle="tab">Map</a></li>
+                    <?php if ($showlisttab) { ?>
+                        <li class=''><a id="locationlisttab" href="#">Location list</a></li>
                     <?php } ?>
                     <?php if (count($this->item->tabs)) { ?>
                         <?php foreach ($this->item->tabs as $key => $tab) { ?>
@@ -128,6 +121,9 @@ $pageclass_sfx = $this->item->params->get('pageclass_sfx');
                                 </div>
                             <?php } ?>
                         </div>
+                        <?php if ($legendposition == "left" || $legendposition == "right") { ?>
+                            <?php //echo $this->loadTemplate('legend_buttons'); ?>
+                        <?php } ?>
                         <?php if (count($this->item->tabs) || $showlisttab) { ?>
                     </div>
                 <?php if (count($this->item->tabs)) { ?>
@@ -144,6 +140,7 @@ $pageclass_sfx = $this->item->params->get('pageclass_sfx');
                 echo "<textarea style='width:100%;height:500px;'><pre>";
                 print_r($this->item);
                 echo "</pre></textarea>";
+                echo "sdfsdf";
             } ?>
         </div>
     </div>

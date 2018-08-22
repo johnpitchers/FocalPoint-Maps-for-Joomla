@@ -160,24 +160,18 @@ class FocalpointModelLocation extends JModelForm
 		$this->_item->customfields = New stdClass();
         foreach ($data as $field=>$value) {
             $segments  = explode(".", $field);
-
-            // Before adding the custom field data to the results we first need to check field settings matches
-            // the data. This is required in case the admin changes or deletes a custom field
-            // from the location type but the data still exists in the location items record.
-            if (!empty($fieldsettings->{$segments[0].".".$segments[1]})){
-                $this->_item->customfields->{end($segments)} = New stdClass();
-                $this->_item->customfields->{end($segments)}->datatype = $segments[0];
-                $this->_item->customfields->{end($segments)}->label = $fieldsettings->{$segments[0].".".$segments[1]}->label;
-                $this->_item->customfields->{end($segments)}->data = $value;
-            }
+            $this->_item->customfields->{end($segments)} = New stdClass();
+            $this->_item->customfields->{end($segments)}->datatype = $segments[0];
+            $this->_item->customfields->{end($segments)}->label = $fieldsettings->{$segments[0].".".$segments[1]}->label;
+            $this->_item->customfields->{end($segments)}->data = $value;     
         }
     }
     
     function getMarker($id, $location_marker) {
         $marker = $location_marker;
-        // This marker has been defined at the location level. It rules!
         
         if (!$marker) {
+            // This marker has been defined at the location level. It rules!
             $db = JFactory::getDbo();
             $query = $db->getQuery(true);
             $query 

@@ -24,7 +24,7 @@ defined('_JEXEC') or die('Restricted access');
 // Load the Google API and initialise the map.
 
 $document = JFactory::getDocument();
-$document->addScript('//maps.googleapis.com/maps/api/js?key='.$this->item->params->get('apikey'));
+$document->addScript('http://maps.googleapis.com/maps/api/js?key='.$this->item->params->get('apikey').'&sensor=false'); 
 $document->addScript(JURI::base().'components/com_focalpoint/assets/js/infobox.js'); 
 
 $getdirections = $this->item->params->get('getdirections');
@@ -54,7 +54,7 @@ $infodescription = "";
 if ($this->item->params->get('infoshowaddress') && $this->item->address !="") $infodescription .= "<p>".JText::_($this->item->address)."</p>";
 if ($this->item->params->get('infoshowphone') && $this->item->phone !="") $infodescription .= "<p>".JText::_($this->item->phone)."</p>";
 if ($this->item->params->get('infoshowintro') && $this->item->description !="") $infodescription .= $this->item->description;
-$boxtext ='<h4>'.addslashes($this->item->title).'</h4><div class=\"infoboxcontent\">'.addslashes(str_replace("src=\"images","src=\"".JUri::base(true)."/images",(str_replace(array("\n", "\t", "\r"), '', $infodescription))));
+$boxtext ='<h4>'.$this->item->title.'</h4><div class=\"infoboxcontent\">'.addslashes(str_replace("src=\"images","src=\"".JUri::base(true)."/images",(str_replace(array("\n", "\t", "\r"), '', $infodescription))));
 $boxtext.='<div class=\"infopointer\"></div></div>';
 
 $script .= '
@@ -112,11 +112,11 @@ $script .= '
                         if (status == google.maps.DirectionsStatus.OK) {
                             directionsDisplay.setDirections(response);
                         } else {
-                            alert("'.JText::_('COM_FOCALPOINT_GEOCODE_FAIL').'" + status);
+                            alert("Google was unable to calculate driving directions to this location. Result: " + status);
                         }
                     });
 				} else {
-                    alert("'.JText::_('COM_FOCALPOINT_GEOCODE_FAIL').'" + status);
+                    alert("Geocode was not successful for the following reason: " + status);
 				}
 			});
 		});';

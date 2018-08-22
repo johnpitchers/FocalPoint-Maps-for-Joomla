@@ -23,7 +23,7 @@ defined('_JEXEC') or die('Restricted access');
             }
             $html .= '<div class="'.$ulclass.'"><h4>'.$item->legend."<small>".$item->legendsubtitle."</small></h4>";
             $html .= '<ul class="sidebar">';
-            $first = false;
+            $first = false;   
         }
         if ($liclass != $item->locationtypealias) {
 			$html .= "<li><a data-marker-type='".$item->locationtype_id."' class='active markertoggles markers-".$item->locationtypealias."' href='#'>".$item->locationtype."</a></li>";

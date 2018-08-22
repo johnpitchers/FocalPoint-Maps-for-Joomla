@@ -11,12 +11,9 @@
 defined('_JEXEC') or die('Restricted access');
 ?>
 
-
+<p class="fp_customfield fp_textbox">
 	<?php if (!$this->outputfield->hidelabel) { ?>
-    <p class="fp_customfield fp_textbox">
 	<span class="fp_label"><?php echo $this->outputfield->label.": "; ?></span>
 	<?php } ?>
 	<?php echo $this->outputfield->data; ?>
-    <?php if (!$this->outputfield->hidelabel) { ?>
-    </p>
-    <?php } ?>
+</p>

@@ -41,7 +41,7 @@
                label="COM_FOCALPOINT_FORM_LBL_LOCATION_DESCRIPTION"
                description="COM_FOCALPOINT_FORM_DESC_LOCATION_DESCRIPTION"
                height="250"
-               filter="JComponentHelper::filterText"
+               filter="safehtml"
                buttons="true"/>
 
         <field name="address" type="text"
@@ -151,7 +151,6 @@
             <option value="0">COM_FOCALPOINT_FORM_LINK_OPT_SELF</option>
             <option value="1">COM_FOCALPOINT_FORM_LINK_OPT_URL</option>
             <option value="2">COM_FOCALPOINT_FORM_LINK_OPT_MAP</option>
-            <option value="4">COM_FOCALPOINT_FORM_LINK_OPT_MENU</option>
             <option value="3">COM_FOCALPOINT_FORM_LINK_OPT_NONE</option>
         </field>
 
@@ -168,13 +167,6 @@
                query="SELECT 0 AS `id`, '- Please select -' AS `title` UNION SELECT `id`, `title` FROM `#__focalpoint_maps`"
                key_field="id"
                value_field="title"
-                />
-
-        <field name="menulink"
-               type="menuitem"
-               default=""
-               label="COM_FOCALPOINT_FORM_LBL_LOCATION_MENUITEM"
-               description="COM_FOCALPOINT_FORM_DESC_LOCATION_MENUITEM"
                 />
 
     </fieldset>

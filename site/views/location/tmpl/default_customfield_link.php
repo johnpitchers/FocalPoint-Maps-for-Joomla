@@ -11,14 +11,11 @@
 defined('_JEXEC') or die('Restricted access');
 ?>
 
-
+<p class="fp_customfield fp_link">
 	<?php if (!$this->outputfield->hidelabel) { ?>
-    <p class="fp_customfield fp_link">
     <span class="fp_label"><?php echo $this->outputfield->label.": "; ?></span>
 	<?php }?>
     <a href="<?php echo $this->outputfield->data->url; ?>" target="<?php echo $this->outputfield->data->target?"_blank":"_self"; ?>">
         <?php echo ($this->outputfield->data->linktext!="")?$this->outputfield->data->linktext:$this->outputfield->data->url; ?>
     </a>
-    <?php if (!$this->outputfield->hidelabel) { ?>
-    </p>
-    <?php } ?>
+</p>
