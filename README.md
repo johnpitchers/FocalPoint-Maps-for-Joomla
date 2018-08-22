@@ -1,7 +1,8 @@
 # focalpoint
 
-##Important
+## Important
 
+**FocalPoint is no longer actively developed or updated. At the current time, Focalpoint is fully functional and compatible with Joomla 3.8.x. I will still provide full support for any users with an active subscription purchased from the Focalpointx.com website. Please send email to me at the address on your subscription confirmation and I'll respond as quick as possible.**
 
 **Developing and maintaining FocalPoint over the past 3 years has been a blast. I have learned a lot from this experience. It has been inspiring seeing the many creative implementations people have built using a tool I created. I thank all of you.**
 
@@ -31,6 +32,10 @@ These extensions are available to subscribers. Subscribers also receive support 
 The license under which the FocalPoint extension for Joomla! is released is the General Public License Version 2 (GPL v2) from the Free Software Foundation. A copy of the license is included with every download. You can also view the license online. Please see http://www.gnu.org/licenses/gpl-faq.html for more information on the GPL license.
 
 Under the terms of this license you are free to use the software in any way you wish. You are free to modify the software in any way you wish and create derivative works.
+
+
+#### Current Build 1.2.7
+Fixes unclosed ul tags when sidebars are placed at the top or bottom of the map.
 
 
 #### Build 1.2.6

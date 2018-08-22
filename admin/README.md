@@ -4,7 +4,13 @@ Focalpoint
 Advanced mapping extension for Joomla CMS
 -----------------------------------------
 
-Current Build 1.2.6
+
+Current Build 1.2.7
+
+Fixes Google API access issue. All Google services now require an API key.
+
+
+Build 1.2.6
 
 Adds language entry for "Find out more".
 Fixes issue with the Geocoder Tool not loading on the maps page in the administrator over https.

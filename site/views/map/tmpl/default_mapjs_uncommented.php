@@ -35,7 +35,7 @@ defined('_JEXEC') or die('Restricted access');
 
 // Load the Google API and initialise the map.
 $document = JFactory::getDocument();
-$document->addScript('//maps.googleapis.com/maps/api/js?key='.$this->item->params->get('apikey').'&sensor=false');
+$document->addScript('//maps.googleapis.com/maps/api/js?key='.$this->item->params->get('apikey'));
 $document->addScript(JURI::base().'components/com_focalpoint/assets/js/infobox.js');
 $params             = JComponentHelper::getParams('com_focalpoint');
 $showlisttab        = $this->item->params->get('locationlist');

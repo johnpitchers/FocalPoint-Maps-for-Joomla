@@ -21,8 +21,10 @@ $metaFieldSets = $this->form->getFieldsets('metadata');
 
 // Import CSS + JS
 $document = JFactory::getDocument();
+
+$params = JComponentHelper::getParams('com_focalpoint');
 $document->addStyleSheet('components/com_focalpoint/assets/css/focalpoint.css');
-$document->addScript('//maps.google.com/maps/api/js?sensor=false');
+$document->addScript('//maps.googleapis.com/maps/api/js?key='.$params->get('apikey'));
 ?>
 
 <script type="text/javascript">
@@ -230,12 +232,6 @@ $document->addScript('//maps.google.com/maps/api/js?sensor=false');
     var latLng;
     var zoom = 15;
 
-    function geocodePosition(pos) {
-        geocoder.geocode({
-            latLng: pos
-        });
-    }
-
     function updateMarkerPosition(latLng) {
         document.getElementById('info').innerHTML = [
             latLng.lat(),
@@ -269,7 +265,6 @@ $document->addScript('//maps.google.com/maps/api/js?sensor=false');
 
         // Update current position info.
         updateMarkerPosition(latLng);
-        geocodePosition(latLng);
 
         // Add dragging event listeners.
         google.maps.event.addListener(marker, 'dragstart', function () {
@@ -277,10 +272,6 @@ $document->addScript('//maps.google.com/maps/api/js?sensor=false');
 
         google.maps.event.addListener(marker, 'drag', function () {
             updateMarkerPosition(marker.getPosition());
-        });
-
-        google.maps.event.addListener(marker, 'dragend', function () {
-            geocodePosition(marker.getPosition());
         });
     }
 
