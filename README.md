@@ -1,4 +1,4 @@
-
+# focalpoint
 
 ## Important
 
@@ -13,7 +13,7 @@ John Pitchers
 13 September, 2017**
 
 ---
-# Focalpoint
+
 
 ## Advanced mapping extension for Joomla CMS
 
@@ -71,7 +71,7 @@ Change to the administrator's location form so the description field reads filte
 
 #### Build 1.2.1
 
-Minor fix to default map template 
+Minor fix to default map template
 
 
 #### Build: 1.2
@@ -157,4 +157,3 @@ Ajax Map Search uses Googles Geocoding API to find and zoom the map to the desir
 ----------------
 **Disclaimer**
 Joomla! is the trademark of Open Source Matters, Inc in the United States and other countries. The Joomla! name is used under a limited license granted by Open Source Matters. Viperfish Media Pty LTD is not affiliated with or endorsed by Open Source Matters or the Joomla! Project.
-
