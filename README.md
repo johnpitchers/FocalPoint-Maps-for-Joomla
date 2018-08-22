@@ -19,6 +19,11 @@ The license under which the FocalPoint extension for Joomla! is released is the 
 Under the terms of this license you are free to use the software in any way you wish. You are free to modify the software in any way you wish and create derivative works.
 
 
+#### Build 1.2.1
+
+Minor fix to default map template
+
+
 #### Build: 1.2
 
 Started as a bug fix release but grew to include new features.

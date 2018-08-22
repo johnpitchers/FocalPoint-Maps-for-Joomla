@@ -128,7 +128,7 @@ foreach ($this->item->markerdata as $marker) {
 
     // Example. If a custom fields was defined called "yourcustomfield" the following line would render
     // that field in the infobox and location list
-    if (!empty($marker->customfields->yourcustomfield)) $marker->infodescription .= $this->renderField($marker->customfields->yourcustomfield, true, true);
+    if (!empty($marker->customfields->yourcustomfield->data)) $marker->infodescription .= $this->renderField($marker->customfields->yourcustomfield, true, true);
 
     $boxtext ='<h4>'.$marker->title.'</h4><div class=\"infoboxcontent\">'.addslashes(str_replace("src=\"images","src=\"".JUri::base(true)."/images",(str_replace(array("\n", "\t", "\r"), '', $marker->infodescription))));
     if (isset($marker->link)) $boxtext.='<p class=\"infoboxlink\"><a title=\"'.$marker->title.'\" href=\"'.$marker->link.'\">Find out more</a></p>';
