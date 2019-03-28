@@ -30,7 +30,7 @@ Use this extension to create advanced map based directories with custom legends,
 
 These extensions are available to subscribers. Subscribers also receive support and a money back guarantee.
 
-**Getting Started Video Tutorial
+**Getting Started Video Tutorial**
 10 minute video on my channel
 https://www.youtube.com/watch?v=zLWSCVkT7Bk
 
