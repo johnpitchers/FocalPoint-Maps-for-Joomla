@@ -1,4 +1,6 @@
+## Update
 
+I'm very happy to say that FocalPoint has been adopted by JoomlaShack who will continue to develop the project under the name Shack Locations. They maintain a free and pro version. For more information head over to JoomlaShack. https://www.joomlashack.com/joomla-extensions/shack-locations/
 
 ## Important
 
@@ -27,6 +29,10 @@ Use this extension to create advanced map based directories with custom legends,
 3. Follow the on screen wizard to set up your first map.
 
 These extensions are available to subscribers. Subscribers also receive support and a money back guarantee.
+
+**Getting Started Video Tutorial
+10 minute video on my channel
+https://www.youtube.com/watch?v=zLWSCVkT7Bk
 
 **License**
 The license under which the FocalPoint extension for Joomla! is released is the General Public License Version 2 (GPL v2) from the Free Software Foundation. A copy of the license is included with every download. You can also view the license online. Please see http://www.gnu.org/licenses/gpl-faq.html for more information on the GPL license.
